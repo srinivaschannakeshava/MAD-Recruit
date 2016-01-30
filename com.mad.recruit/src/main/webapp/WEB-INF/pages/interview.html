@@ -1,0 +1,346 @@
+<div>
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-backdrop="static" data-target="#myModal">Open Modal</button>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Interview Assessment</h4>
+				</div>
+				<div class="modal-body">
+					<ul class="nav nav-tabs">
+						<li class="active"><a data-toggle="tab" href="#home">Candidate
+								Details</a></li>
+						<li><a data-toggle="tab" href="#menu1">Interview
+								Assessment-I</a></li>
+						<li><a data-toggle="tab" href="#menu2">Interview
+								Assessment-II</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="name" class="col-sm-3 control-label">Token
+										No : </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="Token"
+											placeholder="Token No">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="name" class="col-sm-3 control-label">Name :
+									</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="firstname"
+											placeholder="Name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="mobile" class="col-sm-3 control-label">Mobile
+										No : </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="lastname"
+											placeholder="Mob No">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="email" class="col-sm-3 control-label">Email
+										ID : </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="email"
+											placeholder="Email ID">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="city" class="col-sm-3 control-label">City :</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="city"
+											placeholder="city">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="profile" class="col-sm-3 control-label">Profile
+										: </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="profile"
+											placeholder="profile">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="profession" class="col-sm-3 control-label">Profession
+										: </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="profession"
+											placeholder="profession">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="vernacular" class="col-sm-3 control-label">Vernacular
+										: </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="vernacular"
+											placeholder="vernacular">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-offset-4">
+										<button type="reset" class="btn btn-default">Reset</button>
+										<button type="submit" class="btn btn-default">Save
+											Changes</button>
+									</div>
+
+								</div>
+
+							</form>
+						</div>
+
+						<div id="menu1" class="tab-pane fade">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Token
+										No : </label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="Token"
+											placeholder="Token No">
+									</div>
+									<label for="name" class="col-sm-2 control-label">Name :
+									</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="firstname"
+											placeholder="Name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="Panelist" class="col-sm-3 control-label">Panelist
+										Name : </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="Panelist"
+											placeholder="Panelist Name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="available" class="col-sm-3 control-label">Availability
+										: </label>
+									<div class="col-sm-8">
+										<label class="checkbox-inline"><input type="checkbox"
+											value="">Weekdays</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Weekends</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Only Saturday</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Only Sunday</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="Grade" class="col-sm-3 control-label">Grade
+										Preference : </label>
+									<div class="col-sm-8">
+										<label class="checkbox-inline"><input type="checkbox"
+											value="">Lower (5-7)</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Higher (8-10)</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Propel (11-12)</label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="subPref" class="col-sm-3 control-label">Subject
+										Preference : </label>
+									<div class="col-sm-8">
+										<label class="checkbox-inline"><input type="checkbox"
+											value="">English</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Math</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Science</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Accountancy</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Business studies</label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="subTaught" class="col-sm-3 control-label">Subject
+										Taught : </label>
+									<div class="col-sm-8">
+										<label class="checkbox-inline"><input type="checkbox"
+											value="">English</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Math</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Science</label> <label class="checkbox-inline"><input
+											type="checkbox" value="">Accountancy</label> <label
+											class="checkbox-inline"><input type="checkbox"
+											value="">Business studies</label>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="conKnow" class="col-sm-3 control-label">Content
+										Knowledge : </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+									<label for="conBD" class="col-sm-3 control-label">Concept
+										Break Down : </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="present" class="col-sm-3 control-label">Presentation
+										: </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="comment" class="col-sm-3 control-label">Comments:</label>
+									<div class="col-sm-6">
+										<textarea class="form-control " rows="3" id="comment"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-4">
+										<button type="reset" class="btn btn-default">Reset</button>
+										<button type="submit" class="btn btn-default">Save
+											Changes</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+
+						<div id="menu2" class="tab-pane fade">
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Token
+										No : </label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="Token"
+											placeholder="Token No">
+									</div>
+									<label for="name" class="col-sm-2 control-label">Name :
+									</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="firstname"
+											placeholder="Name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="CAS" class="col-sm-3 control-label">Cause
+										Above Self : </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="EM" class="col-sm-3 control-label">Emotional
+										Maturity : </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="SOF" class="col-sm-3 control-label">Sense
+										Of Family : </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="LS" class="col-sm-3 control-label">LeaderShip
+										: </label>
+									<div class="col-sm-2">
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="result" class="col-sm-3 control-label">Result
+										: </label> <label class="radio-inline"><input type="radio"
+										name="optradio">No</label> <label class="radio-inline"><input
+										type="radio" name="optradio">May Be</label> <label
+										class="radio-inline"><input type="radio"
+										name="optradio">Yes</label>
+								</div>
+								<div class="form-group">
+									<label for="comment" class="col-sm-3 control-label">Comments:</label>
+									<div class="col-sm-6">
+										<textarea class="form-control " rows="3" id="comment"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-4">
+										<button type="reset" class="btn btn-default">Reset</button>
+										<button type="submit" class="btn btn-default">Save
+											Changes</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div> -->
+			</div>
+
+		</div>
+	</div>
+</div>

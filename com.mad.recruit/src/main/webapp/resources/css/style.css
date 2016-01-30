@@ -1,0 +1,82 @@
+@CHARSET "ISO-8859-1";
+ body{
+ 
+ }
+#wrapper{
+	/* border: solid 2px; */
+	width: 100%;
+	height: 100%;
+	min-height: 500px;
+}
+
+#page-wrapper{
+	
+	/* border: solid 2px; */
+	margin-top: 55px;
+	/* width: 100%;
+	height: 100%; */
+}
+
+#page-content{
+	/* border: solid 2px; */
+	min-height: 500px;
+}
+.navbar-brand{
+	/* min-height:70px; */
+    font-family: museo-slab, Georgia, "Times New Roman", Times, serif;
+    /* font-family: proxima-nova-sc,"Helvetica Neue",Helvetica,Arial,sans-serif; */
+	padding-top: 5px !important;
+}
+.navbar-custom{
+	padding-bottom: 8px;
+	background-color: #333132 !important;
+}
+
+#brandName{
+	font-size: 30px;
+	font-weight:bold;
+	padding-top: 20px !important;
+	color: white;
+}
+#nav-dropdown{
+	color:#ED1849;
+	margin-top:10px;
+	margin-right: 5px;
+	/* padding-bottom: 10px; */
+}
+.bread-crumb{
+	font: bold;
+	color: #FFF;
+	border:0px !important;
+	background-color: #333132 !important;
+}
+.bread-crumb :HOVER{
+	background-color: #ED1849 !important;
+}
+
+#bread-row{
+	color: #ED1849;
+	
+}
+#token{
+	width: 50px;
+	height: 30px;
+	text-align: center;
+}
+.selected{
+	background-color: #ED1849 !important;
+}
+#interviewList th{
+	text-align: center !important;
+}
+#interviewList td{
+	text-align: center !important;
+}
+#interviewList input {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-horizontal{
+	margin-top: 10px !important;
+}
