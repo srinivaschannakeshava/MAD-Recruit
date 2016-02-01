@@ -1,5 +1,5 @@
-<div>
-	<table id="interviewList" class="display" cellspacing="0" width="100%">
+<div ng-controller="candidateCtrl">
+	<table id="candidateList" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th>Name</th>
@@ -11,17 +11,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>Srinivas</td>
-				<td>8971773538</td>
-				<td>srinivas@gmail.com</td>
+		<tr ng-repeat="candidate in candidateList">
+		<!-- <!-- 	<tr> -->
+				<td>{{candidate.name}}</td>
+				<td>{{candidate.mobNumber}}</td>
+				<td>{{candidate.email}}</td>
 				<td><div>
 						<input class="form-control" id="token" type="text">
 					</div></td>
 				<td><button type="button" class="btn btn-primary btn-sm ">Edit</button>
 					<button type="button" class="btn btn-primary btn-sm">Submit</button></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Raju</td>
 				<td>8123475993</td>
 				<td>raju@gmail.com</td>
@@ -31,7 +32,7 @@
 				<td><button type="button" class="btn btn-primary btn-sm ">Edit</button>
 					<button type="button" class="btn btn-primary btn-sm ">Submit</button>
 				</td>
-			</tr>
+			</tr> --> 
 		</tbody>
 	</table>
 </div>

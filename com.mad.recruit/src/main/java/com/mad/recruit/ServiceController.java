@@ -14,7 +14,7 @@ public class ServiceController {
 	
 	@RequestMapping(value="/ping",method=RequestMethod.GET , produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String pingRequest(){
-		return "success";
+		return "{\"success\":\"true\"}";
 	}
 	
 	@RequestMapping(value="/getcandidatelist" , method=RequestMethod.GET , produces=MediaType.APPLICATION_JSON_VALUE)
