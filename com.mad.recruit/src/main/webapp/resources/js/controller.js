@@ -5,14 +5,12 @@ madRecruitApp.controller("candidateCtrl", [ '$scope','$rootScope', '$http','$tim
 		function($scope,$rootScope, $http,$timeout) {
 	$rootScope.candidateList;
 			var url = '/com.mad.recruit/rest/getcandidatelist'
-				
 				$scope.$watch("candidateList", function(newValue, oldValue){
 				    // do something
 					if($rootScope.candidateList.length!=0){
 						$timeout(function() {
 							$('#candidateList').DataTable();
 					    },0);
-						 
 					}
 				});	
 				
@@ -22,6 +20,11 @@ madRecruitApp.controller("candidateCtrl", [ '$scope','$rootScope', '$http','$tim
 					$rootScope.candidateList=response;
 				}
 			});
+			$scope.addToken=function(candidate){
+				console.log(candidate)
+			}
+			
+			
 		} ]);
 
 madRecruitApp.controller("interviewCtrl", [ '$scope', '$http',

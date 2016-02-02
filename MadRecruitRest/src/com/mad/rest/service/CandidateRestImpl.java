@@ -2,14 +2,15 @@ package com.mad.rest.service;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.mad.bean.CandidateDetails;
 import com.mad.bean.CandidateInterviewDetails;
-import com.mad.dao.CandidateInfoDao;
 import com.mad.dao.impl.CandidateDaoImpl;
 
 @Path("/")
@@ -44,6 +45,13 @@ public String getSelectionList(){
 	return "SelectedList";
 }
 
-
+@Path("/addtoken")
+@PUT
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public String addToken(String data){
+	System.out.println(data);
+	return "hello";
+}
 
 }

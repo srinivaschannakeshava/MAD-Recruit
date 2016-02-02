@@ -20,9 +20,11 @@ public class HttpServices {
 			// optional default is GET
 			con.setRequestMethod("GET");
 
-			//int responseCode = con.getResponseCode();
-			/*System.out.println("\nSending 'GET' request to URL : " + url);
-			System.out.println("Response Code : " + responseCode);*/
+			// int responseCode = con.getResponseCode();
+			/*
+			 * System.out.println("\nSending 'GET' request to URL : " + url);
+			 * System.out.println("Response Code : " + responseCode);
+			 */
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 			String inputLine;
@@ -34,7 +36,7 @@ public class HttpServices {
 			in.close();
 
 			// print result
-			//System.out.println(response.toString());
+			// System.out.println(response.toString());
 			return response.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,28 +46,26 @@ public class HttpServices {
 	}
 
 	// HTTP POST request
-	private void sendPost() {
+	public String sendPut(String urlParameter, String data) {
 
 		try {
-			URL obj = new URL(url);
-			HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+			URL obj = new URL(url + urlParameter);
+			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
 			// add reuqest header
-			con.setRequestMethod("POST");
-			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-			String urlParameters = "sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+			con.setRequestMethod("PUT");
+			con.setRequestProperty("Content-Type", "application/json");
 
 			// Send post request
 			con.setDoOutput(true);
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-			wr.writeBytes(urlParameters);
+			wr.writeBytes(data);
 			wr.flush();
 			wr.close();
 
 			int responseCode = con.getResponseCode();
 			System.out.println("\nSending 'POST' request to URL : " + url);
-			System.out.println("Post parameters : " + urlParameters);
+			System.out.println("Post parameters : " + urlParameter);
 			System.out.println("Response Code : " + responseCode);
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -79,9 +79,10 @@ public class HttpServices {
 
 			// print result
 			System.out.println(response.toString());
+			return response.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		return null;
 	}
 }
