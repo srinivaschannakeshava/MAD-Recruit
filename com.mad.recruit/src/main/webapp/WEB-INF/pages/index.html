@@ -48,7 +48,7 @@
 			<div class="row" style="margin-top: 3%;">
 				<div class="col-lg-4 col-md-6" id="bread-row">
 					<a href="#/candidatelist"><span>
-							<div class="panel bread-crumb selected">
+							<div class="panel bread-crumb " ng-class="{'selected':selected=='candidateList'}">
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-xs-2">
@@ -64,7 +64,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6" id="bread-row">
 					<a href="#/interviewlist"><span>
-							<div class="panel bread-crumb">
+							<div class="panel bread-crumb" ng-class="{'selected':selected=='interviewList'}">
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-xs-2">

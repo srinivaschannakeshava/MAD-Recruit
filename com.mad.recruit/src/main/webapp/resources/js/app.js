@@ -12,3 +12,25 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	// controller:'interviewCtrl'
 	})
 } ]);
+
+madRecruitApp.run(['$rootScope', '$http', '$timeout',
+		function($rootScope, $http, $timeout) {
+			var url = '/com.mad.recruit/rest/getcandidatelist';
+			$http.get(url).success(function(response) {
+				// alert(response)
+				if (response) {
+					$rootScope.candidateList = response;
+				}
+			});
+		} ]);
+
+madRecruitApp.directive('showtab', function() {
+	return {
+		link : function(scope, element, attrs) {
+			element.click(function(e) {
+				e.preventDefault();
+				$(element).tab('show');
+			});
+		}
+	};
+});
