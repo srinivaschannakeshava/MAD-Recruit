@@ -24,7 +24,7 @@ public class CandidateDaoImpl implements CandidateInfoDao{
 				CandidateDetails cd = new CandidateDetails(rs.getString("candidatename"), rs.getLong("mobno"),
 						rs.getString("city"), rs.getString("email"), rs.getString("profile"),
 						rs.getString("profession"), rs.getString("organization"), rs.getString("vernacular"));
-				
+				cd.setTokenNo(rs.getInt("tokenno"));
 				result.add(cd);
 	//			System.out.println("[Debug] "+cd.toString());
 			}
@@ -46,6 +46,25 @@ public class CandidateDaoImpl implements CandidateInfoDao{
 	@Override
 	public boolean addTokenToCandidate(String emailId, int token) {
 		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		try {
+			String SQL = "UPDATE candidateinfo SET tokenno=? WHERE email=?";
+			pstmt = DBconnection.getDBConnection().prepareStatement(SQL);
+			if(token==0){
+				pstmt.setNull(1, java.sql.Types.INTEGER);
+			}else{
+				pstmt.setInt(1, token);
+			}
+			pstmt.setString(2, emailId);
+			
+			int result=pstmt.executeUpdate();
+			if(result==1){
+				return true;
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 		return false;
 	}
 

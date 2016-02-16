@@ -49,9 +49,11 @@ public String getSelectionList(){
 @PUT
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public String addToken(String data){
-	System.out.println(data);
-	return "hello";
+public String addToken(CandidateDetails candDetail){
+//	System.out.println("Data : "+data);
+	CandidateDaoImpl cd=new CandidateDaoImpl();
+	boolean isError=cd.addTokenToCandidate(candDetail.getEmail(), candDetail.getTokenNo());
+	return "{\"isError\":\""+!isError+"\"}";
 }
 
 }

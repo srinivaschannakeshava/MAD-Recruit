@@ -13,7 +13,7 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	})
 } ]);
 
-madRecruitApp.run(['$rootScope', '$http', '$timeout',
+madRecruitApp.run([ '$rootScope', '$http', '$timeout',
 		function($rootScope, $http, $timeout) {
 			var url = '/com.mad.recruit/rest/getcandidatelist';
 			$http.get(url).success(function(response) {

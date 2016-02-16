@@ -4,6 +4,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class CandidateDetails {
+	public CandidateDetails() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public CandidateDetails(String name, long mobNumber, String city, String email, String profile, String profession,
 			String organization, String vernacular) {
 		super();

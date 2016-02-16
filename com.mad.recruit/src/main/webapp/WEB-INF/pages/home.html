@@ -17,10 +17,10 @@
 				<td>{{candidate.mobNumber}}</td>
 				<td>{{candidate.email}}</td>
 				<td><div>
-						<input class="form-control" id="token" type="text">
+						<input class="form-control" id="token" type="text" ng-model="candidate.tokenNo">
 					</div></td>
-				<td><button type="button" class="btn btn-primary btn-sm ">Edit</button>
-					<button type="button" class="btn btn-primary btn-sm" ng-click="addToken(candidate)">Submit</button></td>
+				<td><!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
+					<button type="button" class="btn btn-primary btn-sm" ng-click="addToken(candidate)">Save</button></td>
 			</tr>
 			<!-- <tr>
 				<td>Raju</td>
