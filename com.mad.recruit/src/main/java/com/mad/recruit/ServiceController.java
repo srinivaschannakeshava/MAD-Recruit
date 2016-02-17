@@ -29,5 +29,11 @@ public class ServiceController {
 		HttpServices httpGet=new HttpServices();
 		return httpGet.sendPut("addtoken", tokenNo);
 	}
+	
+	@RequestMapping(value="/getinterviewlist" , method=RequestMethod.GET , produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String getInterviewCandidateList(){
+		HttpServices httpGet=new HttpServices();
+		return httpGet.sendGet("interviewlist");
+	}
 
 }

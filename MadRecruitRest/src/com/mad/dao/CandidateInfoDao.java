@@ -12,6 +12,8 @@ public interface CandidateInfoDao {
 
 	public boolean addTokenToCandidate(String emailId,int token);
 	
+	public List<CandidateDetails> getInterviewCandidates();
+	
 	public CandidateDetails getCandidateDetail(String emaiId);
 
 }

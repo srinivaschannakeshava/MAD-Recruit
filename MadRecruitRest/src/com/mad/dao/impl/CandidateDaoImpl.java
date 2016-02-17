@@ -82,4 +82,31 @@ public class CandidateDaoImpl implements CandidateInfoDao{
 		
 	}
 
+	@Override
+	public List<CandidateDetails> getInterviewCandidates() {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		List<CandidateDetails> result=new ArrayList<CandidateDetails>();
+		try {
+			String SQL = "SELECT * FROM candidateinfo where tokenno>0";
+			pstmt = DBconnection.getDBConnection().prepareStatement(SQL);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CandidateDetails cd = new CandidateDetails(rs.getString("candidatename"), rs.getLong("mobno"),
+						rs.getString("city"), rs.getString("email"), rs.getString("profile"),
+						rs.getString("profession"), rs.getString("organization"), rs.getString("vernacular"));
+				cd.setTokenNo(rs.getInt("tokenno"));
+				result.add(cd);
+	//			System.out.println("[Debug] "+cd.toString());
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}/*finally {
+			DBconnection.closeConnection();
+		}*/
+		return result;
+		
+	}
+
 }

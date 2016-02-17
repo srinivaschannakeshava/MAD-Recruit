@@ -1,4 +1,37 @@
 <div ng-controller="interviewCtrl">
+
+	<table id="interviewList" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Token No</th>
+				<th>Name</th>
+				<th>Mobile No</th>
+				<th>Email</th>
+				<th>Interview</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="intCand in interviewList">
+				<!-- <!-- 	<tr> -->
+				<td>{{intCand.tokenNo}}</td>
+				<td>{{intCand.name}}</td>
+				<td>{{intCand.mobNumber}}</td>
+				<td>{{intCand.email}}</td>
+
+				<td>
+					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
+					<button type="button" class="btn btn-primary btn-sm"
+						ng-click="addToken(candidate)">Interview</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+
+
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
 		data-backdrop="static" data-target="#myModal">Open Modal</button>
 
@@ -14,11 +47,11 @@
 				</div>
 				<div class="modal-body">
 					<ul class="nav nav-tabs">
-						<li class="active"><a showtab=""  data-toggle="tab" href="#home">Candidate
-								Details</a></li>
+						<li class="active"><a showtab="" data-toggle="tab"
+							href="#home">Candidate Details</a></li>
 						<li><a showtab="" data-toggle="tab" href="#menu1">Interview
 								Assessment-I</a></li>
-						<li><a showtab=""  data-toggle="tab" href="#menu2">Interview
+						<li><a showtab="" data-toggle="tab" href="#menu2">Interview
 								Assessment-II</a></li>
 					</ul>
 					<div class="tab-content">

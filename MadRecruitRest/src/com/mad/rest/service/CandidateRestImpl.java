@@ -34,8 +34,9 @@ public List<CandidateDetails> getCandidateList(){
 @Path("/interviewlist")
 @GET
 @Produces(MediaType.APPLICATION_JSON)
-public List<CandidateInterviewDetails> getInterviewList(){
-	return null;
+public List<CandidateDetails> getInterviewList(){
+	CandidateDaoImpl cd=new CandidateDaoImpl();
+	return cd.getInterviewCandidates();
 }
 	
 @Path("/selectedlist")

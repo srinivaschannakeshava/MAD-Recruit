@@ -8,7 +8,7 @@ import com.mad.dao.CandidateInterviewInfo;
 public class CandidateInterviewInfoDao implements CandidateInterviewInfo{
 
 	@Override
-	public ArrayList<CandidateInterviewInfo> getAllCandidateInterviewDetails() {
+	public ArrayList<CandidateInterviewDetails> getAllCandidateInterviewDetails() {
 		// TODO Auto-generated method stub
 		return null;
 	}
