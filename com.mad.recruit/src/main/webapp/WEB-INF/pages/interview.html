@@ -21,7 +21,7 @@
 				<td>
 					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
 					<button type="button" class="btn btn-primary btn-sm"
-						ng-click="addToken(candidate)">Interview</button>
+						ng-click="openInterview(intCand)">Interview</button>
 				</td>
 			</tr>
 		</tbody>
@@ -32,11 +32,11 @@
 
 
 
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-backdrop="static" data-target="#myModal">Open Modal</button>
+<!-- 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+		data-backdrop="static" data-target="#interviewModal">Open Modal</button> -->
 
 	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
+	<div id="interviewModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 
 			<!-- Modal content-->
@@ -62,7 +62,7 @@
 										No : </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="Token"
-											placeholder="Token No">
+											placeholder="Token No" value={{interviewCandidate.tokenNo}} readonly> 
 									</div>
 								</div>
 								<div class="form-group">
@@ -70,7 +70,7 @@
 									</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="firstname"
-											placeholder="Name">
+											placeholder="Name" value={{interviewCandidate.name}} readonly>
 									</div>
 								</div>
 
@@ -79,7 +79,7 @@
 										No : </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="lastname"
-											placeholder="Mob No">
+											placeholder="Mob No" value={{interviewCandidate.mobNumber}} readonly>
 									</div>
 								</div>
 
@@ -88,14 +88,14 @@
 										ID : </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="email"
-											placeholder="Email ID">
+											placeholder="Email ID" value={{interviewCandidate.email}} readonly>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="city" class="col-sm-3 control-label">City :</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="city"
-											placeholder="city">
+											placeholder="city" value={{interviewCandidate.city}} readonly>
 									</div>
 								</div>
 
@@ -104,7 +104,7 @@
 										: </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="profile"
-											placeholder="profile">
+											placeholder="profile" value={{interviewCandidate.profile}} readonly>
 									</div>
 								</div>
 
@@ -113,7 +113,7 @@
 										: </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="profession"
-											placeholder="profession">
+											placeholder="profession" value={{interviewCandidate.profession}} readonly> 
 									</div>
 								</div>
 
@@ -122,7 +122,7 @@
 										: </label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="vernacular"
-											placeholder="vernacular">
+											placeholder="vernacular" value={{interviewCandidate.vernacular}} readonly>
 									</div>
 								</div>
 

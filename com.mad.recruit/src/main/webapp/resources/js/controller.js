@@ -1,13 +1,18 @@
 /**
  * 
  */
-madRecruitApp.controller("candidateCtrl", [ '$scope', '$rootScope', '$http',
-		'$timeout', function($scope, $rootScope, $http, $timeout) {
+madRecruitApp.controller("candidateCtrl", [
+		'$scope',
+		'$rootScope',
+		'$http',
+		'$timeout',
+		function($scope, $rootScope, $http, $timeout) {
 			$rootScope.selected = "candidateList";
 			// $rootScope.candidateList;
 			$scope.$watch("candidateList", function(newValue, oldValue) {
 				// do something
-				if ($rootScope.candidateList!=undefined && $rootScope.candidateList.length != 0) {
+				if ($rootScope.candidateList != undefined
+						&& $rootScope.candidateList.length != 0) {
 					$timeout(function() {
 						$('#candidateList').DataTable();
 					}, 0);
@@ -35,8 +40,12 @@ madRecruitApp.controller("candidateCtrl", [ '$scope', '$rootScope', '$http',
 
 		} ]);
 
-madRecruitApp.controller("interviewCtrl", [ '$scope', '$rootScope', '$http',
-		'$timeout', function($scope, $rootScope, $http, $timeout) {
+madRecruitApp.controller("interviewCtrl", [
+		'$scope',
+		'$rootScope',
+		'$http',
+		'$timeout',
+		function($scope, $rootScope, $http, $timeout) {
 			// alert('hello')
 			$rootScope.selected = "interviewList";
 			var url = '/com.mad.recruit/rest/getinterviewlist';
@@ -48,10 +57,21 @@ madRecruitApp.controller("interviewCtrl", [ '$scope', '$rootScope', '$http',
 			});
 			$scope.$watch("interviewList", function(newValue, oldValue) {
 				// do something
-				if ($scope.interviewList!=undefined && $scope.interviewList.length != 0) {
+				if ($scope.interviewList != undefined
+						&& $scope.interviewList.length != 0) {
 					$timeout(function() {
 						$('#interviewList').DataTable();
 					}, 0);
 				}
 			});
+			$scope.openInterview = function(candidate) {
+				console.log(candidate)
+				$scope.interviewCandidate=candidate;
+//				$('#interviewModal').modal('show');
+				$('#interviewModal').modal({
+					backdrop : 'static',
+					keyboard : false
+				})
+			}
+
 		} ]);
