@@ -1,7 +1,7 @@
 /**
  * 
  */
-var madRecruitApp = angular.module("madRecruitApp", [ 'ngRoute' ]);
+var madRecruitApp = angular.module("madRecruitApp", [ 'ngRoute' ,'checklist-model']);
 
 madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/candidatelist', {
@@ -10,7 +10,10 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	}).when('/interviewlist', {
 		templateUrl : 'interview',
 	// controller:'interviewCtrl'
-	})
+	}).when('/selectlist', {
+		templateUrl : 'selected',
+		// controller:'interviewCtrl'
+		})
 } ]);
 
 madRecruitApp.run([ '$rootScope', '$http', '$timeout',

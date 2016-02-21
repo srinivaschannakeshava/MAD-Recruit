@@ -24,5 +24,10 @@ public class PagesController {
 	   public String getInterviewPage(){
 		   return "interview";
 	   }
+	   
+	   @RequestMapping(value="/selected",method =RequestMethod.GET)
+	   public String getSelectedPage(){
+		   return "selected";
+	   }
 	  
 }

@@ -3,8 +3,7 @@ package com.mad.bean;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class CandidateInterviewDetails {
-	String email;
+public class CandidateInterviewDetails extends CandidateDetails {
 	String panelistName;
 	String availabilityPref;
 	String gradePref;
@@ -13,11 +12,12 @@ public class CandidateInterviewDetails {
 	int contentKnowledge;
 	int breakDownConcept;
 	int presentation;
-	String comments;
+	String teachComments;
 	int causeAboveSelf;
 	int emotionalMaturity;
 	int senseOfFamily;
 	int leaderShip;
+	String finalComments;
 	String Result;
 
 	public String getSubjectPref() {
@@ -84,12 +84,20 @@ public class CandidateInterviewDetails {
 		this.presentation = presentation;
 	}
 
-	public String getComments() {
-		return comments;
+	public String getTeachComments() {
+		return teachComments;
 	}
 
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setTeachComments(String teachComments) {
+		this.teachComments = teachComments;
+	}
+
+	public String getFinalComments() {
+		return finalComments;
+	}
+
+	public void setFinalComments(String finalComments) {
+		this.finalComments = finalComments;
 	}
 
 	public int getCauseAboveSelf() {
@@ -140,14 +148,6 @@ public class CandidateInterviewDetails {
 		this.subjectTaught = subjectTaught;
 	}
 
-	@Override
-	public String toString() {
-		return "CandidateInterviewDetails [email=" + email + ", panelistName=" + panelistName + ", availabilityPref="
-				+ availabilityPref + ", gradePref=" + gradePref + ", subjectPref=" + subjectPref + ", subjectTaught="
-				+ subjectTaught + ", contentKnowledge=" + contentKnowledge + ", breakDownConcept=" + breakDownConcept
-				+ ", presentation=" + presentation + ", comments=" + comments + ", causeAboveSelf=" + causeAboveSelf
-				+ ", emotionalMaturity=" + emotionalMaturity + ", senseOfFamily=" + senseOfFamily + ", leaderShip="
-				+ leaderShip + ", Result=" + Result + "]";
-	}
+	
 
 }

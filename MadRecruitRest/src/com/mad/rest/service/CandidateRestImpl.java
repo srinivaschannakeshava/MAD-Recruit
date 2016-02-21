@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import com.mad.bean.CandidateDetails;
 import com.mad.bean.CandidateInterviewDetails;
 import com.mad.dao.impl.CandidateDaoImpl;
+import com.mad.dao.impl.CandidateInterviewInfoDao;
 
 @Path("/")
 public class CandidateRestImpl {
@@ -34,7 +35,7 @@ public List<CandidateDetails> getCandidateList(){
 @Path("/interviewlist")
 @GET
 @Produces(MediaType.APPLICATION_JSON)
-public List<CandidateDetails> getInterviewList(){
+public List<CandidateInterviewDetails> getInterviewList(){
 	CandidateDaoImpl cd=new CandidateDaoImpl();
 	return cd.getInterviewCandidates();
 }
@@ -42,8 +43,9 @@ public List<CandidateDetails> getInterviewList(){
 @Path("/selectedlist")
 @GET
 @Produces(MediaType.APPLICATION_JSON)
-public String getSelectionList(){
-	return "SelectedList";
+public List<CandidateInterviewDetails> getSelectionList(){
+	CandidateInterviewInfoDao cd=new CandidateInterviewInfoDao();
+	return cd.getAllSelectedList();
 }
 
 @Path("/addtoken")
@@ -54,6 +56,16 @@ public String addToken(CandidateDetails candDetail){
 //	System.out.println("Data : "+data);
 	CandidateDaoImpl cd=new CandidateDaoImpl();
 	boolean isError=cd.addTokenToCandidate(candDetail.getEmail(), candDetail.getTokenNo());
+	return "{\"isError\":\""+!isError+"\"}";
+}
+
+@Path("/updateinterviewdetails")
+@PUT
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public String updateInterviewDetails(CandidateInterviewDetails cid){
+	CandidateInterviewInfoDao ciid=new CandidateInterviewInfoDao();
+	boolean isError=ciid.updateCandidateInterviewDetails(cid);
 	return "{\"isError\":\""+!isError+"\"}";
 }
 

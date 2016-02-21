@@ -1,0 +1,24 @@
+<div ng-controller="selectedCtrl">
+
+	<table id="selectedList" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Token No</th>
+				<th>Name</th>
+				<th>Mobile No</th>
+				<th>Email</th>
+				<th>Result</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="selCand in selectedList">
+				<!-- <!-- 	<tr> -->
+				<td>{{selCand.tokenNo}}</td>
+				<td>{{selCand.name}}</td>
+				<td>{{selCand.mobNumber}}</td>
+				<td>{{selCand.email}}</td>
+				<td>{{selCand.result}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>

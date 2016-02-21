@@ -31,12 +31,12 @@
 							class="fa fa-user fa-2x"></i> <i class="fa fa-caret-down fa-2x"></i>
 					</a>
 						<ul class="dropdown-menu dropdown-user">
-							<li><a href="#"><i class="fa fa-user fa-fw"></i> User
+							<li><a><i class="fa fa-user fa-fw"></i> User
 									Profile</a></li>
 							<li><a href="#"><i class="fa fa-gear fa-fw"></i>
 									Settings</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><i class="fa fa-sign-out fa-fw"></i>
+							<li><a><i class="fa fa-sign-out fa-fw"></i>
 									Logout</a></li>
 						</ul> <!-- /.dropdown-user --></li>
 				</ul>
@@ -81,7 +81,7 @@
 				<div class="col-lg-4 col-md-6" id="bread-row">
 					<a href="#/selectlist"><span>
 
-							<div class="panel bread-crumb">
+							<div class="panel bread-crumb" ng-class="{'selected':selected=='selectedList'}"	>
 								<div class="panel-heading">
 									<div class="row">
 										<div class="col-xs-2">
@@ -111,6 +111,8 @@
 	src="resources/js/angularjs/angular.min.js"></script>
 <script type="text/javascript"
 	src="resources/js/angularjs/angular-route.min.js"></script>
+	<script type="text/javascript"
+	src="resources/js/angularjs/checklist-model.js"></script>
 <script type="text/javascript"
 	src="resources/css/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript"
