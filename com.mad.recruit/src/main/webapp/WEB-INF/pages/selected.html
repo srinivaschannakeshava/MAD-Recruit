@@ -8,6 +8,7 @@
 				<th>Mobile No</th>
 				<th>Email</th>
 				<th>Result</th>
+				<th>View</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,7 +19,31 @@
 				<td>{{selCand.mobNumber}}</td>
 				<td>{{selCand.email}}</td>
 				<td>{{selCand.result}}</td>
+				<td>
+					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
+					<button type="button" class="btn btn-custom btn-sm"
+						ng-click="viewResult(selCand)">View</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+	<div id="viewResultModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Interview Result</h4>
+				</div>
+				<div class="modal-body">
+					<div class="tab-content" >
+						<pre id="result-viewer"></pre>
+						
+						<!-- {{candResult}} -->
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>

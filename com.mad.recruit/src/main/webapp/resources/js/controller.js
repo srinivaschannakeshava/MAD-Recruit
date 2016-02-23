@@ -22,6 +22,7 @@ madRecruitApp.controller("candidateCtrl", [
 			$scope.addToken = function(candidate) {
 				console.log(candidate)
 				var url = "/com.mad.recruit/rest/addtoken";
+				// var url = "/madrecruit/rest/addtoken";
 				var data = candidate;
 				$http.put(url, data).then(function(response) {
 					// success callback
@@ -49,6 +50,7 @@ madRecruitApp.controller("interviewCtrl", [
 			// alert('hello')
 			$rootScope.selected = "interviewList";
 			var url = '/com.mad.recruit/rest/getinterviewlist';
+			// var url = "/madrecruit/rest/getinterviewlist";
 			$http.get(url).success(
 					function(response) {
 						// alert(response)
@@ -75,6 +77,14 @@ madRecruitApp.controller("interviewCtrl", [
 					}, 0);
 				}
 			});
+
+			$scope.openGroupActivy = function(candidate) {
+				$('#groupActivityModal').modal({
+					backdrop : 'static',
+					keyboard : false
+				})
+			}
+
 			$scope.openInterview = function(candidate) {
 				console.log(candidate)
 				$scope.interviewCandidate = candidate;
@@ -115,6 +125,7 @@ madRecruitApp.controller("interviewCtrl", [
 				}
 				console.log(interviewDetails)
 				var url = "/com.mad.recruit/rest/updateinterviewdetails";
+				// var url = "/madrecruit/rest/updateinterviewdetails";
 				$http.put(url, tempInterviewDetail).then(function(response) {
 					// success callback
 					// alert(response.data.isError)
@@ -131,10 +142,15 @@ madRecruitApp.controller("interviewCtrl", [
 
 		} ]);
 
-madRecruitApp.controller("selectedCtrl", [ '$scope', '$rootScope', '$http',
-		'$timeout', function($scope, $rootScope, $http, $timeout) {
+madRecruitApp.controller("selectedCtrl", [
+		'$scope',
+		'$rootScope',
+		'$http',
+		'$timeout',
+		function($scope, $rootScope, $http, $timeout) {
 			$rootScope.selected = "selectedList";
 			var url = '/com.mad.recruit/rest/getselectedlist';
+			// var url = '/madrecruit/rest/getselectedlist';
 			$http.get(url).success(
 					function(response) {
 						// alert(response)
@@ -161,4 +177,15 @@ madRecruitApp.controller("selectedCtrl", [ '$scope', '$rootScope', '$http',
 					}, 0);
 				}
 			});
+			$scope.viewResult=function(candidate){
+				$('#viewResultModal').modal({
+					backdrop : 'static',
+					keyboard : false
+				})
+				console.log(candidate)
+				$scope.candResult=candidate;
+				$('#result-viewer').jsonViewer(candidate,{collapsed: true});
+
+			}
+			
 		} ]);

@@ -7,20 +7,25 @@
 				<th>Name</th>
 				<th>Mobile No</th>
 				<th>Email</th>
+				<th>Group Activity</th>
 				<th>Interview</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="intCand in interviewList">
 				<!-- <!-- 	<tr> -->
-				<td>{{intCand.tokenNo}}</td>
+				<td><i class="fa fa-check fa-2x" ng-show="intCand.result!=null" style="color:#ED1849"></i> {{intCand.tokenNo}}</td>
 				<td>{{intCand.name}}</td>
 				<td>{{intCand.mobNumber}}</td>
 				<td>{{intCand.email}}</td>
-
 				<td>
 					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
-					<button type="button" class="btn btn-primary btn-sm"
+					<button type="button" class="btn btn-custom btn-sm"
+						ng-click="openGroupActivy(intCand)">GA</button>
+				</td>
+				<td>
+					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
+					<button type="button" class="btn btn-custom btn-sm"
 						ng-click="openInterview(intCand)">Interview</button>
 				</td>
 			</tr>
@@ -30,7 +35,101 @@
 
 
 
+	<div id="groupActivityModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
 
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Group Activity Assessment</h4>
+				</div>
+				<div class="modal-body">
+					<div class="tab-content">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label for="name" class="col-sm-3 control-label">Token
+									No : </label>
+								<div class="col-sm-2">
+									<input type="text" class="form-control" id="Token"
+										placeholder="Token No" value={{interviewCandidate.tokenNo}}
+										readonly>
+								</div>
+								<label for="name" class="col-sm-2 control-label">Name :
+								</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="firstname"
+										placeholder="Name" value={{interviewCandidate.name}} readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="EM" class="col-sm-3 control-label">Team
+									Player : </label>
+								<div class="col-sm-2">
+									<select class="form-control"
+										ng-model="interviewCandidate.emotionalMaturity"
+										ng-options="rating for rating in ratings">
+									</select>
+								</div>
+								<label for="SOF" class="col-sm-3 control-label">Leadership
+									: </label>
+								<div class="col-sm-2">
+									<select class="form-control"
+										ng-model="interviewCandidate.senseOfFamily"
+										ng-options="rating for rating in ratings">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="LS" class="col-sm-3 control-label">Emotional
+									Maturity : : </label>
+								<div class="col-sm-2">
+									<select class="form-control"
+										ng-model="interviewCandidate.leaderShip"
+										ng-options="rating for rating in ratings">
+									</select>
+								</div>
+								<label for="LS" class="col-sm-3 control-label">Creative
+									Thinking : : </label>
+								<div class="col-sm-2">
+									<select class="form-control"
+										ng-model="interviewCandidate.leaderShip"
+										ng-options="rating for rating in ratings">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="LS" class="col-sm-3 control-label">Energy
+									Level : : </label>
+								<div class="col-sm-2">
+									<select class="form-control"
+										ng-model="interviewCandidate.leaderShip"
+										ng-options="rating for rating in ratings">
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="comment" class="col-sm-3 control-label">Comments:</label>
+								<div class="col-sm-6">
+									<textarea class="form-control " rows="3" id="comment"
+										ng-model=interviewCandidate.finalComments></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4">
+									<!-- <button type="reset" class="btn btn-default">Reset</button> -->
+									<button type="submit" class="btn btn-default"
+										ng-click="saveInterviewDetails(interviewCandidate)">Save
+										Changes</button>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
 		data-backdrop="static" data-target="#interviewModal">Open Modal</button> -->
@@ -337,15 +436,22 @@
 								</div>
 								<div class="form-group">
 									<label for="result" class="col-sm-3 control-label">Result
-										: </label> <label class="radio-inline">
-										<input type="radio"	name="optradio" ng-model=interviewCandidate.result ng-checked="interviewCandidate.result=='No'" value="No">No</label> 
-										<label class="radio-inline"><input type="radio" name="optradio" ng-model=interviewCandidate.result ng-checked="interviewCandidate.result=='May Be'" value="May Be">May Be</label> 
-										<label	class="radio-inline"><input type="radio" name="optradio" ng-model=interviewCandidate.result ng-checked="interviewCandidate.result=='Yes'" value="Yes">Yes</label>
+										: </label> <label class="radio-inline"> <input type="radio"
+										name="optradio" ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='No'" value="No">No
+									</label> <label class="radio-inline"><input type="radio"
+										name="optradio" ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='May Be'"
+										value="May Be">May Be</label> <label class="radio-inline"><input
+										type="radio" name="optradio"
+										ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='Yes'" value="Yes">Yes</label>
 								</div>
 								<div class="form-group">
 									<label for="comment" class="col-sm-3 control-label">Comments:</label>
 									<div class="col-sm-6">
-										<textarea class="form-control " rows="3" id="comment" ng-model=interviewCandidate.finalComments></textarea>
+										<textarea class="form-control " rows="3" id="comment"
+											ng-model=interviewCandidate.finalComments></textarea>
 									</div>
 								</div>
 								<div class="form-group">

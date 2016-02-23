@@ -80,3 +80,10 @@
 .form-horizontal{
 	margin-top: 10px !important;
 }
+.btn-custom{
+	background-color: #ED1849;
+	color: #fff;
+}
+#result-viewer{
+	padding-left: 15px;
+}

@@ -10,8 +10,10 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class HttpServices {
 	// HTTP GET request
+//	String url = "http://localhost:8080/MadRecruitRest/";
+	
 	String url = "http://localhost:8080/MadRecruitRest/";
-
+	
 	public String sendGet(String urlParameter) {
 		try {
 			URL obj = new URL(url + urlParameter);
