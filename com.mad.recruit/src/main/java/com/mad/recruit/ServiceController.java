@@ -47,5 +47,11 @@ public class ServiceController {
 		HttpServices httpGet = new HttpServices();
 		return httpGet.sendGet("selectedlist");
 	}
+	
+	@RequestMapping(value="/addnewcandidate",method=RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String addNewCandidate(@RequestBody String newCandidate){
+		HttpServices httpGet = new HttpServices();
+		return httpGet.sendPut("addnewcandidate", newCandidate);
+	}
 
 }

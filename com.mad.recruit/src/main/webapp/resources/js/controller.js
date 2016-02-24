@@ -38,6 +38,25 @@ madRecruitApp.controller("candidateCtrl", [
 					alert('failure ' + response)
 				});
 			}
+			$scope.saveNewCandidate = function(newCandidate) {
+				console.log(newCandidate)
+				var url = "/com.mad.recruit/rest/addnewcandidate";
+				// var url = "/madrecruit/rest/addtoken";
+				var data = newCandidate;
+				$http.put(url, data).then(function(response) {
+					// success callback
+					// alert(response.data.isError)
+					if (response.data.isError == 'true') {
+						alert('!! Failed to add Candidate ')
+						candidate.tokenNo = 0;
+					} else {
+						alert('Candidate saved')
+					}
+				}, function(response) {
+					// failure callback
+					alert('failure ' + response)
+				});
+			}
 
 		} ]);
 
@@ -177,15 +196,17 @@ madRecruitApp.controller("selectedCtrl", [
 					}, 0);
 				}
 			});
-			$scope.viewResult=function(candidate){
+			$scope.viewResult = function(candidate) {
 				$('#viewResultModal').modal({
 					backdrop : 'static',
 					keyboard : false
 				})
 				console.log(candidate)
-				$scope.candResult=candidate;
-				$('#result-viewer').jsonViewer(candidate,{collapsed: true});
+				$scope.candResult = candidate;
+				$('#result-viewer').jsonViewer(candidate, {
+					collapsed : false
+				});
 
 			}
-			
+
 		} ]);

@@ -130,4 +130,32 @@ public class CandidateDaoImpl implements CandidateInfoDao {
 
 	}
 
+	@Override
+	public boolean addNewCandidate(CandidateDetails ncd) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		try {
+			String query="INSERT into candidateinfo(candidatename,mobno,city,email,profile,profession,organization,vernacular,tokenno) VALUES(?,?,?,?,?,?,?,?,?)";
+			pstmt = DBconnection.getDBConnection().prepareStatement(query);
+			pstmt.setString(1, ncd.getName());
+			pstmt.setLong(2, ncd.getMobNumber());
+			pstmt.setString(3, ncd.getCity());
+			pstmt.setString(4, ncd.getEmail());
+			pstmt.setString(5, ncd.getProfile());
+			pstmt.setString(6, ncd.getProfession());
+			pstmt.setString(7, ncd.getOrganization());
+			pstmt.setString(8, ncd.getVernacular());
+			pstmt.setInt(9, ncd.getTokenNo());
+			int result = pstmt.executeUpdate();
+			if (result == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+		return false;
+	}
+
 }

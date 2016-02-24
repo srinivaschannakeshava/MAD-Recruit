@@ -16,5 +16,7 @@ public interface CandidateInfoDao {
 	public List<CandidateInterviewDetails> getInterviewCandidates();
 	
 	public CandidateDetails getCandidateDetail(String emaiId);
+	
+	public boolean addNewCandidate(CandidateDetails ncd);
 
 }

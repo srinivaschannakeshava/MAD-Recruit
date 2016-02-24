@@ -1,7 +1,8 @@
 /**
  * 
  */
-var madRecruitApp = angular.module("madRecruitApp", [ 'ngRoute' ,'checklist-model']);
+var madRecruitApp = angular.module("madRecruitApp", [ 'ngRoute',
+		'checklist-model' ]);
 
 madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	$routeProvider.when('/candidatelist', {
@@ -12,8 +13,8 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	// controller:'interviewCtrl'
 	}).when('/selectlist', {
 		templateUrl : 'selected',
-		// controller:'interviewCtrl'
-		})
+	// controller:'interviewCtrl'
+	})
 } ]);
 
 madRecruitApp.run([ '$rootScope', '$http', '$timeout',
@@ -25,6 +26,13 @@ madRecruitApp.run([ '$rootScope', '$http', '$timeout',
 					$rootScope.candidateList = response;
 				}
 			});
+			$rootScope.addCandidate = function() {
+				$('#addUserModal').modal({
+					backdrop : 'static',
+					keyboard : false
+				})
+				$rootScope.newCandidate={} ;
+			}
 		} ]);
 
 madRecruitApp.directive('showtab', function() {

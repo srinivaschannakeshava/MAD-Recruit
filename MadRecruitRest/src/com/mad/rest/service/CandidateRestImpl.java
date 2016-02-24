@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.mad.bean.CandidateDetails;
 import com.mad.bean.CandidateInterviewDetails;
+import com.mad.dao.CandidateInfoDao;
 import com.mad.dao.impl.CandidateDaoImpl;
 import com.mad.dao.impl.CandidateInterviewInfoDao;
 
@@ -66,6 +67,16 @@ public String addToken(CandidateDetails candDetail){
 public String updateInterviewDetails(CandidateInterviewDetails cid){
 	CandidateInterviewInfoDao ciid=new CandidateInterviewInfoDao();
 	boolean isError=ciid.updateCandidateInterviewDetails(cid);
+	return "{\"isError\":\""+!isError+"\"}";
+}
+
+@Path("/addnewcandidate")
+@PUT
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public String addNewCandidate(CandidateDetails ncd){
+	CandidateDaoImpl cid=new CandidateDaoImpl();
+	boolean isError=cid.addNewCandidate(ncd);
 	return "{\"isError\":\""+!isError+"\"}";
 }
 

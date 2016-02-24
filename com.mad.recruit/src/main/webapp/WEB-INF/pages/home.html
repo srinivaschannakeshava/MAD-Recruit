@@ -11,16 +11,20 @@
 			</tr>
 		</thead>
 		<tbody>
-		<tr ng-repeat="candidate in candidateList">
-		<!-- <!-- 	<tr> -->
+			<tr ng-repeat="candidate in candidateList">
+				<!-- <!-- 	<tr> -->
 				<td>{{candidate.name}}</td>
 				<td>{{candidate.mobNumber}}</td>
 				<td>{{candidate.email}}</td>
 				<td><div>
-						<input class="form-control" id="token" type="text" ng-model="candidate.tokenNo">
+						<input class="form-control" id="token" type="text"
+							ng-model="candidate.tokenNo">
 					</div></td>
-				<td><!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
-					<button type="button" class="btn btn-custom btn-sm" ng-click="addToken(candidate)">Save</button></td>
+				<td>
+					<!-- <button type="button" class="btn btn-primary btn-sm ">Edit</button> -->
+					<button type="button" class="btn btn-custom btn-sm"
+						ng-click="addToken(candidate)">Save</button>
+				</td>
 			</tr>
 			<!-- <tr>
 				<td>Raju</td>
@@ -32,7 +36,104 @@
 				<td><button type="button" class="btn btn-primary btn-sm ">Edit</button>
 					<button type="button" class="btn btn-primary btn-sm ">Submit</button>
 				</td>
-			</tr> --> 
+			</tr> -->
 		</tbody>
 	</table>
+
+	<div id="addUserModal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add New Candidate</h4>
+				</div>
+				<div class="modal-body">
+					<div class="tab-content">
+						<form class="form-horizontal" role="form" name="newCandForm">
+							<div class="form-group">
+								<label for="name" class="col-sm-3 control-label">Token
+									No : </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="Token"
+										placeholder="Token No" ng-model=newCandidate.tokenNo required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="name" class="col-sm-3 control-label">Name :
+								</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="firstname"
+										placeholder="Name" ng-model=newCandidate.name required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="mobile" class="col-sm-3 control-label">Mobile
+									No : </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="lastname"
+										placeholder="Mob No" ng-model=newCandidate.mobNumber required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="email" class="col-sm-3 control-label">Email
+									ID : </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="email"
+										placeholder="Email ID" ng-model=newCandidate.email required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="city" class="col-sm-3 control-label">City :</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="city"
+										placeholder="city" ng-model=newCandidate.city required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="profile" class="col-sm-3 control-label">Profile
+									: </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="profile"
+										placeholder="profile" ng-model=newCandidate.profile required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="profession" class="col-sm-3 control-label">Profession
+									: </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="profession"
+										placeholder="profession"
+										ng-model=newCandidate.profession required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="vernacular" class="col-sm-3 control-label">Vernacular
+									: </label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="vernacular"
+										placeholder="vernacular"
+										ng-model=newCandidate.vernacular required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-offset-4">
+									<button type="submit" class="btn btn-default" ng-click="newCandForm.$valid && saveNewCandidate(newCandidate)">Add
+										Candidate</button>
+								</div>
+
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

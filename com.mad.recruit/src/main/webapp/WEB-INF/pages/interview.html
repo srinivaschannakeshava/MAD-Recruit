@@ -14,7 +14,8 @@
 		<tbody>
 			<tr ng-repeat="intCand in interviewList">
 				<!-- <!-- 	<tr> -->
-				<td><i class="fa fa-check fa-2x" ng-show="intCand.result!=null" style="color:#ED1849"></i> {{intCand.tokenNo}}</td>
+				<td><i class="fa fa-check fa-2x" ng-show="intCand.result!=null"
+					style="color: #ED1849"></i> {{intCand.tokenNo}}</td>
 				<td>{{intCand.name}}</td>
 				<td>{{intCand.mobNumber}}</td>
 				<td>{{intCand.email}}</td>
@@ -31,9 +32,6 @@
 			</tr>
 		</tbody>
 	</table>
-
-
-
 
 	<div id="groupActivityModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
@@ -67,7 +65,6 @@
 									Player : </label>
 								<div class="col-sm-2">
 									<select class="form-control"
-										ng-model="interviewCandidate.emotionalMaturity"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
@@ -75,51 +72,46 @@
 									: </label>
 								<div class="col-sm-2">
 									<select class="form-control"
-										ng-model="interviewCandidate.senseOfFamily"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="LS" class="col-sm-3 control-label">Emotional
-									Maturity : : </label>
+									Maturity : </label>
 								<div class="col-sm-2">
 									<select class="form-control"
-										ng-model="interviewCandidate.leaderShip"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
 								<label for="LS" class="col-sm-3 control-label">Creative
-									Thinking : : </label>
+									Thinking : </label>
 								<div class="col-sm-2">
 									<select class="form-control"
-										ng-model="interviewCandidate.leaderShip"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="LS" class="col-sm-3 control-label">Energy
-									Level : : </label>
+									Level : </label>
 								<div class="col-sm-2">
 									<select class="form-control"
-										ng-model="interviewCandidate.leaderShip"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="comment" class="col-sm-3 control-label">Comments:</label>
+								<label for="comment" class="col-sm-3 control-label">Comments
+									:</label>
 								<div class="col-sm-6">
-									<textarea class="form-control " rows="3" id="comment"
-										ng-model=interviewCandidate.finalComments></textarea>
+									<textarea class="form-control " rows="3" id="comment"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-4">
 									<!-- <button type="reset" class="btn btn-default">Reset</button> -->
-									<button type="submit" class="btn btn-default"
-										ng-click="saveInterviewDetails(interviewCandidate)">Save
+									<button type="submit" class="btn btn-default" ng-click="">Save
 										Changes</button>
 								</div>
 
@@ -131,10 +123,6 @@
 		</div>
 	</div>
 
-	<!-- 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-backdrop="static" data-target="#interviewModal">Open Modal</button> -->
-
-	<!-- Modal -->
 	<div id="interviewModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-lg">
 
@@ -467,10 +455,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Close</button>
-							</div> -->
+
 			</div>
 
 		</div>
