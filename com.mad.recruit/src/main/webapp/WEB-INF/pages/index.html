@@ -27,8 +27,9 @@
 					</a> <a class="navbar-brand" href="#" id="brandName"> RECRUIT </a>
 				</div>
 				<ul class="nav navbar-top-links navbar-right">
+		<!-- 		 <button type="button" class="btn btn-default" ng-show="selected=='login'">Login</button> -->
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="" id="nav-dropdown"> <i
+						data-toggle="dropdown" href="" id="nav-dropdown" ng-show="selected!='login'"> <i
 							class="fa fa-user fa-2x"></i> <i class="fa fa-caret-down fa-2x"></i>
 					</a>
 						<ul class="dropdown-menu dropdown-user">
@@ -36,7 +37,7 @@
 							<li><a href="#"><i class="fa fa-gear fa-fw"></i>
 									Settings</a></li>
 							<li class="divider"></li>
-							<li><a><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+							<li><a href="#/login"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
 						</ul> <!-- /.dropdown-user --></li>
 				</ul>
 			</div>
@@ -45,7 +46,7 @@
 		<div><a href="" style="color:#ED1849" ng-show="selected=='candidateList'" ng-click="addCandidate()" ><i class="fa fa-user-plus fa-3x pull-left" style="margin-top:90px;margin-left:20px;"></i></a></div>
 		<div class="container" id="page-wrapper">
 		
-			<div class="row" style="margin-top: 3%;">
+			<div class="row" style="margin-top: 3%;" ng-show="selected!='login'">
 				<div class="col-md-4" id="bread-row">
 					<a href="#/candidatelist"><span>
 							<div class="panel bread-crumb "

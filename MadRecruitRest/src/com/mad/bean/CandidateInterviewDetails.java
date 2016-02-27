@@ -18,7 +18,17 @@ public class CandidateInterviewDetails extends CandidateDetails {
 	int senseOfFamily;
 	int leaderShip;
 	String finalComments;
+	String groupActivity;
 	String Result;
+
+	
+	public String getGroupActivity() {
+		return groupActivity;
+	}
+
+	public void setGroupActivity(String groupActivity) {
+		this.groupActivity = groupActivity;
+	}
 
 	public String getSubjectPref() {
 		return subjectPref;

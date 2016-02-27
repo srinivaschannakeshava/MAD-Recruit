@@ -18,7 +18,7 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 		try {
 			String SQL = "UPDATE candidateinfo SET panelistnames=?,availpref=?,"
 					+ "gradepref=?,subjectpref=?,subjTaught=?,contentKnow=? ,consbreakdown=?,presentation=?,"
-					+ "teachcomments=?,causeabvslf=?,emotmature=?,sensoffamily=?,leadership=?,finalcomments=?,result=? WHERE email=?";
+					+ "teachcomments=?,causeabvslf=?,emotmature=?,sensoffamily=?,leadership=?,finalcomments=?,result=?,groupactivity=? WHERE email=?";
 			pstmt = DBconnection.getDBConnection().prepareStatement(SQL);
 			if (cid.getPanelistName() == null) {
 				pstmt.setNull(1, java.sql.Types.VARCHAR);
@@ -96,7 +96,13 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 			} else {
 				pstmt.setString(15, cid.getResult());
 			}
-				pstmt.setString(16, cid.getEmail());
+			if (cid.getGroupActivity() == null) {
+				pstmt.setNull(16, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(16, cid.getGroupActivity());
+			}
+			
+				pstmt.setString(17, cid.getEmail());
 
 			int result = pstmt.executeUpdate();
 			if (result == 1) {
@@ -145,6 +151,7 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 				cd.setLeaderShip(rs.getInt("leadership"));
 				cd.setResult(rs.getString("result"));
 				cd.setFinalComments(rs.getString("finalcomments"));
+				cd.setGroupActivity(rs.getString("groupactivity"));
 				result.add(cd);
 				// System.out.println("[Debug] "+cd.toString());
 			}

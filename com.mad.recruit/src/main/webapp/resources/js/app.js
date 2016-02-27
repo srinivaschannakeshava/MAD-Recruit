@@ -14,6 +14,8 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	}).when('/selectlist', {
 		templateUrl : 'selected',
 	// controller:'interviewCtrl'
+	}).when('/login',{
+		templateUrl : 'login'
 	})
 } ]);
 

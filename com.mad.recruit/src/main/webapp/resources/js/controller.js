@@ -1,6 +1,10 @@
 /**
  * 
  */
+madRecruitApp.controller("loginCtrl", [ '$scope', '$rootScope', '$http',
+		'$timeout', function($scope, $rootScope, $http, $timeout) {
+			$rootScope.selected = "login";
+		} ]);
 madRecruitApp.controller("candidateCtrl", [
 		'$scope',
 		'$rootScope',
@@ -102,6 +106,51 @@ madRecruitApp.controller("interviewCtrl", [
 					backdrop : 'static',
 					keyboard : false
 				})
+				$scope.candidateGA = candidate;
+				$scope.canGA;
+				if($scope.candidateGA.groupActivity!=null){
+					$scope.canGA=JSON.parse($scope.candidateGA.groupActivity);
+				}else{
+					$scope.canGA=null;
+				}
+				
+				$scope.saveCandidateGA = function(canGA) {
+					$scope.candidateGA.groupActivity = JSON
+							.stringify($scope.canGA);
+					var tempInterviewDetail = JSON.parse(JSON
+							.stringify($scope.candidateGA));
+					if (tempInterviewDetail.availabilityPref != null) {
+						tempInterviewDetail.availabilityPref = JSON
+								.stringify(tempInterviewDetail.availabilityPref)
+					}
+					if (tempInterviewDetail.gradePref != null) {
+						tempInterviewDetail.gradePref = JSON
+								.stringify(tempInterviewDetail.gradePref)
+					}
+					if (tempInterviewDetail.subjectTaught != null) {
+						tempInterviewDetail.subjectTaught = JSON
+								.stringify(tempInterviewDetail.subjectTaught)
+					}
+					if (tempInterviewDetail.subjectPref != null) {
+						tempInterviewDetail.subjectPref = JSON
+								.stringify(tempInterviewDetail.subjectPref)
+					}
+//					console.log($scope.candidateGA)
+						var url = "/com.mad.recruit/rest/updateinterviewdetails";
+					$http.put(url, tempInterviewDetail).then(function(response) {
+						// success callback
+						// alert(response.data.isError)
+						if (response.data.isError == 'false') {
+							alert('Saved')
+						} else {
+							alert('Error in saving')
+						}
+					}, function(response) {
+						// failure callback
+						alert('failure ' + response)
+					});
+				}
+				
 			}
 
 			$scope.openInterview = function(candidate) {

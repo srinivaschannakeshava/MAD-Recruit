@@ -50,28 +50,28 @@
 									No : </label>
 								<div class="col-sm-2">
 									<input type="text" class="form-control" id="Token"
-										placeholder="Token No" value={{interviewCandidate.tokenNo}}
-										readonly>
+										placeholder="Token No" value={{candidateGA.tokenNo}} readonly>
 								</div>
 								<label for="name" class="col-sm-2 control-label">Name :
 								</label>
 								<div class="col-sm-4">
 									<input type="text" class="form-control" id="firstname"
-										placeholder="Name" value={{interviewCandidate.name}} readonly>
+										placeholder="Name" value={{candidateGA.name}} readonly>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="EM" class="col-sm-3 control-label">Team
 									Player : </label>
 								<div class="col-sm-2">
-									<select class="form-control"
+									<select class="form-control" ng-model="canGA.teamPlayer"
 										ng-options="rating for rating in ratings">
+
 									</select>
 								</div>
 								<label for="SOF" class="col-sm-3 control-label">Leadership
 									: </label>
 								<div class="col-sm-2">
-									<select class="form-control"
+									<select class="form-control" ng-model="canGA.leadership"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
@@ -80,14 +80,14 @@
 								<label for="LS" class="col-sm-3 control-label">Emotional
 									Maturity : </label>
 								<div class="col-sm-2">
-									<select class="form-control"
+									<select class="form-control" ng-model="canGA.emotionalMaturity"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
 								<label for="LS" class="col-sm-3 control-label">Creative
 									Thinking : </label>
 								<div class="col-sm-2">
-									<select class="form-control"
+									<select class="form-control" ng-model="canGA.creativeThinking"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
@@ -96,7 +96,7 @@
 								<label for="LS" class="col-sm-3 control-label">Energy
 									Level : </label>
 								<div class="col-sm-2">
-									<select class="form-control"
+									<select class="form-control" ng-model="canGA.energyLevel"
 										ng-options="rating for rating in ratings">
 									</select>
 								</div>
@@ -105,16 +105,16 @@
 								<label for="comment" class="col-sm-3 control-label">Comments
 									:</label>
 								<div class="col-sm-6">
-									<textarea class="form-control " rows="3" id="comment"></textarea>
+									<textarea class="form-control " rows="3" id="comment"
+										ng-model="canGA.comments"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-sm-offset-4">
 									<!-- <button type="reset" class="btn btn-default">Reset</button> -->
-									<button type="submit" class="btn btn-default" ng-click="">Save
-										Changes</button>
+									<button type="submit" class="btn btn-default"
+										ng-click="saveCandidateGA(canGA)">Save Changes</button>
 								</div>
-
 							</div>
 						</form>
 					</div>
@@ -267,7 +267,7 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.availabilityPref"
 											checklist-value="avail"> {{avail}}
-										</label>{{interviewCandidate.availabilityPref}}
+										</label><!-- {{interviewCandidate.availabilityPref}} -->
 
 
 									</div>
@@ -281,7 +281,7 @@
 											type="checkbox"
 											checklist-model="interviewCandidate.gradePref"
 											checklist-value="gradepref"> {{gradepref}}
-										</label>{{interviewCandidate.gradePref}}
+										</label><!-- {{interviewCandidate.gradePref}} -->
 
 									</div>
 
@@ -296,7 +296,7 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.subjectPref"
 											checklist-value="subpref"> {{subpref}}
-										</label>{{interviewCandidate.subjectPref}}
+										</label><!-- {{interviewCandidate.subjectPref}} -->
 
 									</div>
 								</div>
@@ -309,7 +309,7 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.subjectTaught"
 											checklist-value="subpref"> {{subpref}}
-										</label>{{interviewCandidate.subjectTaught}}
+										</label><!-- {{interviewCandidate.subjectTaught}} -->
 
 									</div>
 								</div>

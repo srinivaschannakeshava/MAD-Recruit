@@ -117,6 +117,8 @@ public class CandidateDaoImpl implements CandidateInfoDao {
 				cd.setLeaderShip(rs.getInt("leadership"));
 				cd.setResult(rs.getString("result"));
 				cd.setFinalComments(rs.getString("finalcomments"));
+				cd.setGroupActivity(rs.getString("groupactivity"));
+
 				result.add(cd);
 				// System.out.println("[Debug] "+cd.toString());
 			}
