@@ -38,10 +38,10 @@ public class LoginController
 		{
 			if (auth.isAuthenticated())
 			{
-				return "true";
+				return "{\"loggedin\":\"true\"}";
 			}
 		}
-		return "false";
+		return "{\"loggedin\":\"false\"}";
 	}
 
 	@RequestMapping(value = "/loggedInUser", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
@@ -55,18 +55,18 @@ public class LoginController
 	@RequestMapping(value = "/success", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public @ResponseBody String loginSuccess()
 	{
-		return "success";
+		return "{\"login\":\"success\"}";
 	}
 
 	@RequestMapping(value = "/failure", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public @ResponseBody String loginFailure()
 	{
-		return "failure";
+		return "{\"login\":\"failure\"}";
 	}
 
 	@RequestMapping(value = "/logout", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public @ResponseBody String logout()
 	{
-		return "success";
+		return "{\"logout\":\"success\"}";
 	}
 }
