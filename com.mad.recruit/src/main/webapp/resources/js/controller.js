@@ -8,21 +8,23 @@ madRecruitApp.controller("loginCtrl", [
 		'$location',
 		'httpService',
 		'loginService',
-		function($scope, $rootScope, $timeout,$location, httpService,loginService) {
+		function($scope, $rootScope, $timeout, $location, httpService,
+				loginService) {
 			$scope.username = "";
 			$scope.password = "";
-			
-//			var data = "username=admin&password=admin";
+
+			// var data = "username=admin&password=admin";
 			$scope.login = function() {
-				var data = "username=" + $scope.username + "&password="	+ $scope.password;
-				loginService.login(data,function(response) {
-							if(response.login == "success"){
-								$location.path("/candidatelist");
-								$rootScope.isLoggedIn = true;
-							} else if(response.login == "failure"){
-								$location.path("/login");
-							}
-						});
+				var data = "username=" + $scope.username + "&password="
+						+ $scope.password;
+				loginService.login(data, function(response) {
+					if (response.login == "success") {
+						$location.path("/candidatelist");
+						$rootScope.isLoggedIn = true;
+					} else if (response.login == "failure") {
+						$location.path("/login");
+					}
+				});
 
 			}
 			$rootScope.selected = "login";
@@ -34,20 +36,25 @@ madRecruitApp.controller("candidateCtrl", [
 		'httpService',
 		function($scope, $rootScope, $timeout, httpService) {
 			var url = '/com.mad.recruit/rest/getcandidatelist';
-			httpService.getRequest(url,function(response) {
+			httpService.getRequest(url, function(response) {
 				$rootScope.candidateList = response;
 			});
-			
-			
+			var candidateTable;
 			$rootScope.selected = "candidateList";
 			// $rootScope.candidateList;
+
 			$scope.$watch("candidateList", function(newValue, oldValue) {
 				// do something
+				// console.log($rootScope.candidateList.length)
+				console.log("table redwan")
 				if ($rootScope.candidateList != undefined
 						&& $rootScope.candidateList.length != 0) {
+					console.log("Table creation");
+					$('#candidateList').DataTable().destroy();
 					$timeout(function() {
-						$('#candidateList').DataTable();
+						candidateTable = $('#candidateList').DataTable();
 					}, 0);
+					// candidateTable.draw();
 				}
 			});
 

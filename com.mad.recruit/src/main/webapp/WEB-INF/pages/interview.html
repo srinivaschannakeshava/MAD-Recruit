@@ -136,10 +136,14 @@
 					<ul class="nav nav-tabs">
 						<li class="active"><a showtab="" data-toggle="tab"
 							href="#home">Candidate Details</a></li>
-						<li><a showtab="" data-toggle="tab" href="#menu1">Interview
-								Assessment-I</a></li>
-						<li><a showtab="" data-toggle="tab" href="#menu2">Interview
-								Assessment-II</a></li>
+						<li><a showtab="" data-toggle="tab" href="#menu1">ED
+								Support Assessment</a></li>
+						<li><a showtab="" data-toggle="tab" href="#menu2">HC
+								Assessment</a></li>
+						<li><a showtab="" data-toggle="tab" href="#menu3">Propel
+								Assessment</a></li>
+						<li><a showtab="" data-toggle="tab" href="#menu4">FR
+								Assessment</a></li>
 					</ul>
 					<div class="tab-content">
 						<div id="home" class="tab-pane fade in active">
@@ -158,7 +162,8 @@
 									</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="firstname"
-											placeholder="Name" value={{interviewCandidate.name}} readonly>
+											placeholder="Name" value={{interviewCandidate.name}}
+											ng-model=interviewCandidate.name>
 									</div>
 								</div>
 
@@ -168,7 +173,7 @@
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="lastname"
 											placeholder="Mob No" value={{interviewCandidate.mobNumber}}
-											readonly>
+											ng-model=interviewCandidate.mobNumber>
 									</div>
 								</div>
 
@@ -178,24 +183,53 @@
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="email"
 											placeholder="Email ID" value={{interviewCandidate.email}}
-											readonly>
+											ng-model=interviewCandidate.email>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="city" class="col-sm-3 control-label">City :</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="city"
-											placeholder="city" value={{interviewCandidate.city}} readonly>
+											placeholder="city" value={{interviewCandidate.city}}
+											ng-model=interviewCandidate.city>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="profile" class="col-sm-3 control-label">Profile
-										: </label>
-									<div class="col-sm-4">
-										<input type="text" class="form-control" id="profile"
-											placeholder="profile" value={{interviewCandidate.profile}}
-											readonly>
+									<label for="profile" class="col-sm-2 control-label">Preference
+										1 : </label>
+									<div class="col-sm-3">
+										<select class="form-control" id="preference1">
+											<option value="Ed Support">Ed Support</option>
+											<option value="Propel">Propel</option>
+											<option value="FR">FR</option>
+										</select>
+									</div>
+									<label for="profile" class="col-sm-2 control-label">Preference
+										2 : </label>
+									<div class="col-sm-3">
+										<select class="form-control" id="preference1">
+											<option value="Ed Support">Ed Support</option>
+											<option value="Propel">Propel</option>
+											<option value="FR">FR</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-6">
+										<label for="profile" class="col-sm-7 control-label">Interested
+											in PR ?: </label> <label class="radio-inline"><input
+											type="radio" name="optradio">Yes</label> <label
+											class="radio-inline"><input type="radio"
+											name="optradio">No</label>
+									</div>
+									<div class="col-sm-3">
+										<select class="form-control" id="PR">
+											<option value="Photography">Photography</option>
+											<option value="Videography">Videography</option>
+											<option value="Content Writing">Content Writing</option>
+											<option value="Video Editing">Video Editing</option>
+										</select>
 									</div>
 								</div>
 
@@ -205,7 +239,8 @@
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="profession"
 											placeholder="profession"
-											value={{interviewCandidate.profession}} readonly>
+											value={{interviewCandidate.profession}}
+											ng-model=interviewCandidate.profession>
 									</div>
 								</div>
 
@@ -215,10 +250,19 @@
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="vernacular"
 											placeholder="vernacular"
-											value={{interviewCandidate.vernacular}} readonly>
+											value={{interviewCandidate.vernacular}}
+											ng-model=interviewCandidate.vernacular>
 									</div>
 								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-4">
+										<!-- <button type="reset" class="btn btn-default">Reset</button> -->
+										<button type="button" class="btn btn-default"
+											ng-click="saveInterviewDetails(interviewCandidate)">Save
+											Changes</button>
+									</div>
 
+								</div>
 								<!-- <div class="form-group">
 									<div class="col-sm-offset-4">
 										<button type="reset" class="btn btn-default">Reset</button>
@@ -267,7 +311,8 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.availabilityPref"
 											checklist-value="avail"> {{avail}}
-										</label><!-- {{interviewCandidate.availabilityPref}} -->
+										</label>
+										<!-- {{interviewCandidate.availabilityPref}} -->
 
 
 									</div>
@@ -281,7 +326,8 @@
 											type="checkbox"
 											checklist-model="interviewCandidate.gradePref"
 											checklist-value="gradepref"> {{gradepref}}
-										</label><!-- {{interviewCandidate.gradePref}} -->
+										</label>
+										<!-- {{interviewCandidate.gradePref}} -->
 
 									</div>
 
@@ -296,7 +342,8 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.subjectPref"
 											checklist-value="subpref"> {{subpref}}
-										</label><!-- {{interviewCandidate.subjectPref}} -->
+										</label>
+										<!-- {{interviewCandidate.subjectPref}} -->
 
 									</div>
 								</div>
@@ -309,7 +356,8 @@
 											<input type="checkbox"
 											checklist-model="interviewCandidate.subjectTaught"
 											checklist-value="subpref"> {{subpref}}
-										</label><!-- {{interviewCandidate.subjectTaught}} -->
+										</label>
+										<!-- {{interviewCandidate.subjectTaught}} -->
 
 									</div>
 								</div>
@@ -352,6 +400,21 @@
 											ng-model="interviewCandidate.teachComments"></textarea>
 									</div>
 								</div>
+
+								<div class="form-group">
+									<label for="result" class="col-sm-3 control-label">Result
+										: </label> <label class="radio-inline"> <input type="radio"
+										name="optradio" ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='No'" value="No">No
+									</label> <label class="radio-inline"><input type="radio"
+										name="optradio" ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='May Be'"
+										value="May Be">May Be</label> <label class="radio-inline"><input
+										type="radio" name="optradio"
+										ng-model=interviewCandidate.result
+										ng-checked="interviewCandidate.result=='Yes'" value="Yes">Yes</label>
+								</div>
+
 								<div class="form-group">
 									<div class="col-sm-offset-4">
 										<!-- <button type="reset" class="btn btn-default">Reset</button> -->
@@ -422,7 +485,7 @@
 										</select>
 									</div>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="result" class="col-sm-3 control-label">Result
 										: </label> <label class="radio-inline"> <input type="radio"
 										name="optradio" ng-model=interviewCandidate.result
@@ -434,7 +497,7 @@
 										type="radio" name="optradio"
 										ng-model=interviewCandidate.result
 										ng-checked="interviewCandidate.result=='Yes'" value="Yes">Yes</label>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label for="comment" class="col-sm-3 control-label">Comments:</label>
 									<div class="col-sm-6">
@@ -453,6 +516,9 @@
 								</div>
 							</form>
 						</div>
+						
+						
+						
 					</div>
 				</div>
 

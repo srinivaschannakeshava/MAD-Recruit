@@ -26,17 +26,7 @@
 						ng-click="addToken(candidate)">Save</button>
 				</td>
 			</tr>
-			<!-- <tr>
-				<td>Raju</td>
-				<td>8123475993</td>
-				<td>raju@gmail.com</td>
-				<td><div>
-						<input class="form-control" id="token" type="text">
-					</div></td>
-				<td><button type="button" class="btn btn-primary btn-sm ">Edit</button>
-					<button type="button" class="btn btn-primary btn-sm ">Submit</button>
-				</td>
-			</tr> -->
+
 		</tbody>
 	</table>
 
@@ -94,21 +84,51 @@
 							</div>
 
 							<div class="form-group">
-								<label for="profile" class="col-sm-3 control-label">Profile
-									: </label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" id="profile"
-										placeholder="profile" ng-model=newCandidate.profile required>
+								<label for="profile" class="col-sm-2 control-label">Preference
+									1 : </label>
+								<div class="col-sm-3">
+									<select class="form-control" id="preference1">
+										<option value="Ed Support">Ed Support</option>
+										<option value="Propel">Propel</option>
+										<option value="FR">FR</option>
+									</select>
+								</div>
+								<label for="profile" class="col-sm-2 control-label">Preference
+									2 : </label>
+								<div class="col-sm-3">
+									<select class="form-control" id="preference1">
+										<option value="Ed Support">Ed Support</option>
+										<option value="Propel">Propel</option>
+										<option value="FR">FR</option>
+									</select>
 								</div>
 							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<label for="profile" class="col-sm-7 control-label">Interested
+										in PR ?: </label> <label class="radio-inline"><input
+										type="radio" name="optradio">Yes</label> <label
+										class="radio-inline"><input type="radio"
+										name="optradio">No</label>
+								</div>
+								<div class="col-sm-3">
+									<select class="form-control" id="PR">
+										<option value="Photography">Photography</option>
+										<option value="Videography">Videography</option>
+										<option value="Content Writing">Content Writing</option>
+										<option value="Video Editing">Video Editing</option>
+									</select>
+								</div>
+							</div>
+
 
 							<div class="form-group">
 								<label for="profession" class="col-sm-3 control-label">Profession
 									: </label>
 								<div class="col-sm-4">
 									<input type="text" class="form-control" id="profession"
-										placeholder="profession"
-										ng-model=newCandidate.profession required>
+										placeholder="profession" ng-model=newCandidate.profession
+										required>
 								</div>
 							</div>
 
@@ -117,14 +137,15 @@
 									: </label>
 								<div class="col-sm-4">
 									<input type="text" class="form-control" id="vernacular"
-										placeholder="vernacular"
-										ng-model=newCandidate.vernacular required>
+										placeholder="vernacular" ng-model=newCandidate.vernacular
+										required>
 								</div>
 							</div>
 
 							<div class="form-group">
 								<div class="col-sm-offset-4">
-									<button type="submit" class="btn btn-default" ng-click="newCandForm.$valid && saveNewCandidate(newCandidate)">Add
+									<button type="submit" class="btn btn-default"
+										ng-click="newCandForm.$valid && saveNewCandidate(newCandidate)">Add
 										Candidate</button>
 								</div>
 
