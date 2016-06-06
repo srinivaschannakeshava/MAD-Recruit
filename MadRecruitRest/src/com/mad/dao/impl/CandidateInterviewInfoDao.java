@@ -18,7 +18,9 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 		try {
 			String SQL = "UPDATE candidateinfo SET panelistnames=?,availpref=?,"
 					+ "gradepref=?,subjectpref=?,subjTaught=?,contentKnow=? ,consbreakdown=?,presentation=?,"
-					+ "teachcomments=?,causeabvslf=?,emotmature=?,sensoffamily=?,leadership=?,finalcomments=?,result=?,groupactivity=? WHERE email=?";
+					+ "teachcomments=?,causeabvslf=?,emotmature=?,sensoffamily=?,leadership=?,finalcomments=?,result=?,groupactivity=?,"
+					+ "candidatename=?,mobno=?,city=?,profile=?,profession=?,organization=?,vernacular=?"
+					+ " WHERE email=?";
 			pstmt = DBconnection.getDBConnection().prepareStatement(SQL);
 			if (cid.getPanelistName() == null) {
 				pstmt.setNull(1, java.sql.Types.VARCHAR);
@@ -101,8 +103,44 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 			} else {
 				pstmt.setString(16, cid.getGroupActivity());
 			}
-			
-				pstmt.setString(17, cid.getEmail());
+
+			if (cid.getName() == null) {
+				pstmt.setNull(17, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(17, cid.getName());
+			}
+			if (cid.getMobNumber() == 0) {
+				pstmt.setNull(18, java.sql.Types.INTEGER);
+			} else {
+				pstmt.setLong(18, cid.getMobNumber());
+			}
+			if (cid.getCity() == null) {
+				pstmt.setNull(19, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(19, cid.getCity());
+			}
+			if (cid.getProfile() == null) {
+				pstmt.setNull(20, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(20, cid.getProfile());
+			}
+			if (cid.getProfession() == null) {
+				pstmt.setNull(21, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(21, cid.getProfession());
+			}
+			if (cid.getOrganization() == null) {
+				pstmt.setNull(22, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(22, cid.getOrganization());
+			}
+			if (cid.getVernacular() == null) {
+				pstmt.setNull(23, java.sql.Types.VARCHAR);
+			} else {
+				pstmt.setString(23, cid.getVernacular());
+			}
+
+			pstmt.setString(24, cid.getEmail());
 
 			int result = pstmt.executeUpdate();
 			if (result == 1) {
@@ -125,7 +163,7 @@ public class CandidateInterviewInfoDao implements CandidateInterviewInfo {
 			pstmt = DBconnection.getDBConnection().prepareStatement(SQL);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-			
+
 				CandidateInterviewDetails cd = new CandidateInterviewDetails();
 				cd.setName(rs.getString("candidatename"));
 				cd.setMobNumber(rs.getLong("mobno"));
