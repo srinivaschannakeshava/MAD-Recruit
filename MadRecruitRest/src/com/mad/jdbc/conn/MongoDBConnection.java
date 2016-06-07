@@ -13,9 +13,11 @@ import com.mongodb.Mongo;
 
 public class MongoDBConnection {
 
-	public static String dbAddress ="52.77.248.90"; //"localhost";
+	public static String dbAddress = "52.77.248.90"; // "localhost";
 	public static int dbPort = 27017;
 	public static MongoClient mongoClient = null;
+	public static String dbName = "madrecruit";
+	public static String collectionName = "candidates";
 
 	public static void getConnection() {
 		try {
@@ -40,6 +42,17 @@ public class MongoDBConnection {
 			return getCollection(dbName, collectionName);
 		}
 
+	}
+
+	public static DBCollection getCollection() {
+		if (mongoClient != null) {
+			DB db = mongoClient.getDB(dbName);
+			DBCollection coll = db.getCollection(collectionName);
+			return coll;
+		} else {
+			getConnection();
+			return getCollection(dbName, collectionName);
+		}
 	}
 
 }
