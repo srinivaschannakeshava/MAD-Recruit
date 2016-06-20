@@ -15,5 +15,7 @@ public interface MongoCandidateDao {
 	public List<MongoCandidateDetails> getCandidateList();
 
 	public MongoCandidateDetails getCandidateDetails(String emailId);
+	
+	public  List<MongoCandidateDetails> getInterviewedCandidateList();
 
 }

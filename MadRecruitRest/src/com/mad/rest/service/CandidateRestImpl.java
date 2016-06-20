@@ -83,11 +83,14 @@ public class CandidateRestImpl {
 		return "{\"isError\":\"" + !isError + "\"}";
 	}
 
+	// mongo rest calls
+	
+	
 	@Path("/maddnewcandidate")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String addToMongoDBTest(MongoCandidateDetails MCD) {
+	public String addToMongoDB(MongoCandidateDetails MCD) {
 		boolean result = MongoCandidateDaoImpl.getMongoCandidateDaoImpl().addCandidateToDB(MCD);
 		return "{\"isError\":\"" + result + "\"}";
 	}
@@ -116,5 +119,15 @@ public class CandidateRestImpl {
 		boolean isError = MongoCandidateDaoImpl.getMongoCandidateDaoImpl().updateCandidateMongoDB(MCD);
 		return "{\"isError\":\"" + !isError + "\"}";
 	}
-
+	
+	@Path("/downloadexcel")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<MongoCandidateDetails> downloadCandidateList(){
+		return MongoCandidateDaoImpl.getMongoCandidateDaoImpl().getInterviewedCandidateList();
+	}
+	
+	
+	
+	
 }
