@@ -1,38 +1,20 @@
 package com.mad.recruit;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
-import java.net.URLConnection;
 import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.mad.recruit.bean.MongoCandidateDetails;
 import com.mad.recruit.service.HttpServices;
 
 @Controller
@@ -47,28 +29,25 @@ public class ServiceController {
 	@RequestMapping(value = "/getcandidatelist", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String getCandidateList() {
 		HttpServices httpGet = new HttpServices();
-		return httpGet.sendGet("candidateslist");
+		return httpGet.sendGet("mcandidatelist");
 	}
 
 	@RequestMapping(value = "/addtoken", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String addTokenNumber(@RequestBody String tokenNo) {
 		HttpServices httpGet = new HttpServices();
-		return httpGet.sendPut("addtoken", tokenNo);
-		// mupdateinterviewdetails
+		return httpGet.sendPut("maddtoken", tokenNo);
 	}
 
 	@RequestMapping(value = "/getinterviewlist", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String getInterviewCandidateList() {
 		HttpServices httpGet = new HttpServices();
-		return httpGet.sendGet("interviewlist");
-		// mcandidatelist
+		return httpGet.sendGet("minterviewlist");
 	}
 
 	@RequestMapping(value = "/updateinterviewdetails", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody String updateInterviewDetails(@RequestBody String interviewDetails) {
 		HttpServices httpGet = new HttpServices();
-		return httpGet.sendPut("updateinterviewdetails", interviewDetails);
-		// mupdateinterviewdetails
+		return httpGet.sendPut("mupdateinterviewdetails", interviewDetails);
 	}
 
 	@RequestMapping(value = "/getselectedlist", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -76,12 +55,11 @@ public class ServiceController {
 		HttpServices httpGet = new HttpServices();
 		return httpGet.sendGet("selectedlist");
 	}
-
-	@RequestMapping(value = "/addnewcandidate", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String addNewCandidate(@RequestBody String newCandidate) {
+	
+	@RequestMapping(value="/addnewcandidate",method=RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String addNewCandidate(@RequestBody String newCandidate){
 		HttpServices httpGet = new HttpServices();
-		return httpGet.sendPut("addnewcandidate", newCandidate);
-		// maddnewcandidate
+		return httpGet.sendPut("maddnewcandidate", newCandidate);
 	}
 
 	@RequestMapping(value = "/downloadList", method = RequestMethod.GET)
@@ -159,7 +137,7 @@ public class ServiceController {
 				e.printStackTrace();
 			}
 		}
-
+		
 	}
 
 }

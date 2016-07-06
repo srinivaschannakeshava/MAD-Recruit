@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mad.bean.CandidateDetails;
 import com.mad.bean.CandidateInterviewDetails;
+import com.mad.bean.MongoCandidateDetails;
 import com.mad.dao.CandidateInfoDao;
 import com.mad.jdbc.conn.DBconnection;
 
@@ -25,6 +26,7 @@ public class CandidateDaoImpl implements CandidateInfoDao {
 				CandidateDetails cd = new CandidateDetails(rs.getString("candidatename"), rs.getLong("mobno"),
 						rs.getString("city"), rs.getString("email"), rs.getString("profile"),
 						rs.getString("profession"), rs.getString("organization"), rs.getString("vernacular"));
+				//MongoCandidateDetails cd = new MongoCandidateDetails();
 				cd.setTokenNo(rs.getInt("tokenno"));
 				result.add(cd);
 				// System.out.println("[Debug] "+cd.toString());

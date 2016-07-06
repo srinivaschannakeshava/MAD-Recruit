@@ -17,7 +17,7 @@ public class MongoDBConnection {
 	public static int dbPort = 27017;
 	public static MongoClient mongoClient = null;
 	public static String dbName = "madrecruit";
-	public static String collectionName = "candidates";
+	public static String collectionName = "kolkattacandidates";
 
 	public static void getConnection() {
 		try {

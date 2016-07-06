@@ -1,0 +1,31 @@
+	<div class="form-group">
+								<div class="col-sm-6">
+									<label for="profile" class="col-sm-7 control-label">Interested
+										in PR ?: </label> <label class="radio-inline"><input
+										type="radio" name="optradio" ng-model=newCandidate.prInterest
+										ng-checked="newCandidate.prInterest=='Yes'" value="Yes">Yes</label> <label
+										class="radio-inline"><input type="radio"
+										name="optradio" ng-model=newCandidate.prInterest
+										ng-checked="newCandidate.prInterest=='No'" value="No">No</label>
+								</div>
+								<div class="col-sm-3">
+									<select class="form-control" id="PR">
+										<option value="Photography">Photography</option>
+										<option value="Videography">Videography</option>
+										<option value="Content Writing">Content Writing</option>
+										<option value="Video Editing">Video Editing</option>
+									</select>
+								</div>
+							</div>
+							
+	
+
+								<div class="form-group">
+									<label for="Panelist" class="col-sm-3 control-label">Center
+										Pref : </label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="Center"
+											placeholder="Center Name"
+											ng-model="interviewCandidate.propelCenterPref">
+									</div>
+								</div>

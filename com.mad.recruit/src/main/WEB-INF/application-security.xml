@@ -41,8 +41,8 @@
 	<security:authentication-manager alias="authenticationManager">
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user authorities="ROLE_USER" name="madster"
-					password="makeadifference" />
+				<security:user authorities="ROLE_USER" name="admin"
+					password="admin" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>

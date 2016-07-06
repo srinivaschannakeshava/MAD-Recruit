@@ -1,6 +1,4 @@
-package com.mad.bean;
-
-import org.bson.types.ObjectId;
+package com.mad.recruit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -60,8 +58,8 @@ public class MongoCandidateDetails {
 	String frPanelistName;
 	String frAvailabilityPref;
 	String frPreference;
-	int frProActiveness;
 	String frResult;
+	int frProActiveness;
 
 	public int getFrProActiveness() {
 		return frProActiveness;

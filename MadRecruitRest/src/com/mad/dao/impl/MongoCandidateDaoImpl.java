@@ -1,20 +1,21 @@
 package com.mad.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.mongojack.DBCursor;
 import org.mongojack.DBQuery;
-import org.mongojack.DBQuery.Query;
 import org.mongojack.DBUpdate;
 import org.mongojack.JacksonDBCollection;
 import org.mongojack.WriteResult;
 
 import com.mad.bean.MongoCandidateDetails;
 import com.mad.dao.MongoCandidateDao;
+import com.mad.jdbc.conn.DBconnection;
 import com.mad.jdbc.conn.MongoDBConnection;
 import com.mongodb.DBCollection;
-import com.mongodb.QueryBuilder;
+import com.mongodb.DuplicateKeyException;
 
 public class MongoCandidateDaoImpl implements MongoCandidateDao {
 	private static MongoCandidateDaoImpl MCDI;
@@ -44,9 +45,13 @@ public class MongoCandidateDaoImpl implements MongoCandidateDao {
 		// TODO Auto-generated method stub
 		JacksonDBCollection<MongoCandidateDetails, String> coll = JacksonDBCollection
 				.wrap(MongoDBConnection.getCollection(), MongoCandidateDetails.class, String.class);
-		WriteResult<MongoCandidateDetails, String> result = coll.insert(MCD);
+		try {
+			WriteResult<MongoCandidateDetails, String> result = coll.insert(MCD);
 		if (result.getSavedId() != null) {
 			return false;
+		} }
+		catch(DuplicateKeyException e) {
+			return true;
 		}
 		// System.out.println(result);
 		// System.out.println(result.getWriteResult());
@@ -61,8 +66,15 @@ public class MongoCandidateDaoImpl implements MongoCandidateDao {
 		// DBUpdate.Builder builder = new DBUpdate.Builder();
 		// WriteResult<MongoCandidateDetails, String> result =
 		// coll.findAndModify(DBQuery.is("email", MCD.getEmail()), MCD));
-		WriteResult<MongoCandidateDetails, String> result = coll.update(DBQuery.is("email", MCD.getEmail()), MCD);
-		return result.isUpdateOfExisting();
+		try {
+			WriteResult<MongoCandidateDetails, String> result = coll.update(DBQuery.is("email", MCD.getEmail()), MCD);
+			return result.isUpdateOfExisting();
+			
+		}
+		catch(DuplicateKeyException e) {
+			return false;
+		}
+
 	}
 
 	@Override
@@ -87,20 +99,25 @@ public class MongoCandidateDaoImpl implements MongoCandidateDao {
 		MongoCandidateDetails candidate = coll.findOne((DBQuery.is("email", emailId)));
 		return candidate;
 	}
+	
+	public List<MongoCandidateDetails> getCandiadatesForInterview() 
+	{
+		List<MongoCandidateDetails> list = new ArrayList<MongoCandidateDetails>();
+		JacksonDBCollection<MongoCandidateDetails, String> coll = JacksonDBCollection
+				.wrap(MongoDBConnection.getCollection(), MongoCandidateDetails.class, String.class);
+		DBCursor<MongoCandidateDetails> cursor = coll.find(DBQuery.greaterThan("tokenNo", 0));
+		while (cursor.hasNext()) {
+			MongoCandidateDetails candidateData = cursor.next();
+			list.add(candidateData);
+		}
+		return list;
+		
+	}
 
 	@Override
 	public List<MongoCandidateDetails> getInterviewedCandidateList() {
 		// TODO Auto-generated method stub
-
-		JacksonDBCollection<MongoCandidateDetails, String> coll = JacksonDBCollection
-				.wrap(MongoDBConnection.getCollection(), MongoCandidateDetails.class, String.class);
-		DBCursor<MongoCandidateDetails> cursor = coll.find(DBQuery.greaterThan("tokenNo", 0));
-		List<MongoCandidateDetails> candList = new ArrayList<MongoCandidateDetails>();
-		while (cursor.hasNext()) {
-			MongoCandidateDetails candidateData = cursor.next();
-			candList.add(candidateData);
-		}
-		return candList;
+		return null;
 	}
 
 }

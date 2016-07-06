@@ -91,7 +91,7 @@ madRecruitApp.controller("candidateCtrl", [
 					// success callback
 					// alert(response.data.isError)
 					if (response.isError == 'true') {
-						alert('!! Failed to add Candidate ')
+						alert('!! Failed to add Candidate, Check token No or Email ID')
 						candidate.tokenNo = 0;
 					} else {
 						alert('Candidate saved')
@@ -121,14 +121,46 @@ madRecruitApp
 												// alert(response)
 												if (response) {
 													for ( var i in response) {
-														response[i].availabilityPref = JSON
-																.parse(response[i].availabilityPref);
-														response[i].gradePref = JSON
-																.parse(response[i].gradePref);
-														response[i].subjectTaught = JSON
-																.parse(response[i].subjectTaught);
-														response[i].subjectPref = JSON
-																.parse(response[i].subjectPref);
+														if (response[i].edAvailabilityPref != null) {
+														response[i].edAvailabilityPref = JSON
+																.parse(response[i].edAvailabilityPref);
+														}
+														if (response[i].pAvailabilityPref != null) {
+															response[i].pAvailabilityPref = JSON
+																	.parse(response[i].pAvailabilityPref);
+															}
+														if (response[i].edGradePref != null) {
+														response[i].edGradePref = JSON
+																.parse(response[i].edGradePref);
+														}
+														if (response[i].edSubjectTaught != null) {
+														response[i].edSubjectTaught = JSON
+																.parse(response[i].edSubjectTaught);
+														}
+														if (response[i].edCenterPref != null) {
+															response[i].edCenterPref = JSON
+																	.parse(response[i].edCenterPref);
+															}
+														if (response[i].propelSubjectTaught != null) {
+															response[i].propelSubjectTaught = JSON
+																	.parse(response[i].propelSubjectTaught);
+															}
+														if (response[i].edSubjectPref != null) {
+														response[i].edSubjectPref = JSON
+																.parse(response[i].edSubjectPref);
+														}
+														if (response[i].propelSubjectPref != null) {
+															response[i].propelSubjectPref = JSON
+																	.parse(response[i].propelSubjectPref);
+															}
+														if (response[i].propelCenterPref != null) {
+															response[i].propelCenterPref = JSON
+																	.parse(response[i].propelCenterPref);
+															}
+														if (response[i].frAvailabilityPref != null) {
+															response[i].frAvailabilityPref = JSON
+																	.parse(response[i].frAvailabilityPref);
+															}
 													}
 													$scope.interviewList = response;
 												}
@@ -163,22 +195,29 @@ madRecruitApp
 											.stringify($scope.canGA);
 									var tempInterviewDetail = JSON.parse(JSON
 											.stringify($scope.candidateGA));
+									
+									
 									if (tempInterviewDetail.availabilityPref != null) {
 										tempInterviewDetail.availabilityPref = JSON
-												.stringify(tempInterviewDetail.availabilityPref)
+												.stringify(tempInterviewDetail.edAvailabilityPref)
 									}
 									if (tempInterviewDetail.gradePref != null) {
 										tempInterviewDetail.gradePref = JSON
-												.stringify(tempInterviewDetail.gradePref)
+												.stringify(tempInterviewDetail.edGradePref)
 									}
 									if (tempInterviewDetail.subjectTaught != null) {
 										tempInterviewDetail.subjectTaught = JSON
-												.stringify(tempInterviewDetail.subjectTaught)
+												.stringify(tempInterviewDetail.edSubjectTaught)
 									}
 									if (tempInterviewDetail.subjectPref != null) {
 										tempInterviewDetail.subjectPref = JSON
-												.stringify(tempInterviewDetail.subjectPref)
+												.stringify(tempInterviewDetail.edSubjectPref)
 									}
+									if (tempInterviewDetail.propelCenterPref != null) {
+										tempInterviewDetail.propelCenterPref = JSON
+												.stringify(tempInterviewDetail.propelCenterPref);
+										}
+									
 									// console.log($scope.candidateGA)
 									var url = "/com.mad.recruit/rest/updateinterviewdetails";
 
@@ -213,33 +252,67 @@ madRecruitApp
 							}
 							$scope.avails = [ 'Weekdays', 'Weekends',
 									'Only Saturday', 'Only Sunday' ]
+							
+							
 							$scope.gradeprefs = [ 'Lower (5-7)',
-									'Higher (8-10)', 'Propel (11-12)' ]
-							$scope.subprefs = [ 'English', 'Math', 'Science',
-									'Accountancy', 'Business studies' ];
+									'Higher (8-10)']
+							
+							$scope.centerprefs = [ 'Angels','Ashadeep','Don Bosco', 'Patricks','Samarthanam','St.Marys']
+							
+							$scope.subprefs = [ 'English', 'Math', 'Science'];
+							
+							$scope.propelSubprefs = [ 'Accountancy','Economics', 'History', 'Kannada', 'Geography', 'Business studies',
+							                          'Mathematics','Chemistry' ];
+							
 							$scope.ratings = [ 1, 2, 3, 4, 5 ];
 
 							$scope.saveInterviewDetails = function(
 									interviewDetails) {
 								var tempInterviewDetail = JSON.parse(JSON
 										.stringify(interviewDetails));
-								if (tempInterviewDetail.availabilityPref != null) {
-									tempInterviewDetail.availabilityPref = JSON
-											.stringify(tempInterviewDetail.availabilityPref)
+								
+								if (tempInterviewDetail.edAvailabilityPref != null) {
+									tempInterviewDetail.edAvailabilityPref = JSON
+											.stringify(tempInterviewDetail.edAvailabilityPref)
 								}
-								if (tempInterviewDetail.gradePref != null) {
-									tempInterviewDetail.gradePref = JSON
-											.stringify(tempInterviewDetail.gradePref)
+								if (tempInterviewDetail.pAvailabilityPref != null) {
+									tempInterviewDetail.pAvailabilityPref = JSON
+											.stringify(tempInterviewDetail.pAvailabilityPref)
 								}
-								if (tempInterviewDetail.subjectTaught != null) {
-									tempInterviewDetail.subjectTaught = JSON
-											.stringify(tempInterviewDetail.subjectTaught)
+								if (tempInterviewDetail.edGradePref != null) {
+									tempInterviewDetail.edGradePref = JSON
+											.stringify(tempInterviewDetail.edGradePref)
 								}
-								if (tempInterviewDetail.subjectPref != null) {
-									tempInterviewDetail.subjectPref = JSON
-											.stringify(tempInterviewDetail.subjectPref)
+								if (tempInterviewDetail.edSubjectTaught != null) {
+									tempInterviewDetail.edSubjectTaught = JSON
+											.stringify(tempInterviewDetail.edSubjectTaught)
 								}
-								console.log(interviewDetails)
+								if (tempInterviewDetail.edCenterPref != null) {
+									tempInterviewDetail.edCenterPref = JSON
+											.stringify(tempInterviewDetail.edCenterPref)
+								}
+								if (tempInterviewDetail.propelSubjectPref != null) {
+									tempInterviewDetail.propelSubjectPref = JSON
+											.stringify(tempInterviewDetail.propelSubjectPref)
+								}
+								if (tempInterviewDetail.propelSubjectTaught != null) {
+									tempInterviewDetail.propelSubjectTaught = JSON
+											.stringify(tempInterviewDetail.propelSubjectTaught)
+								}
+								if (tempInterviewDetail.edSubjectPref != null) {
+									tempInterviewDetail.edSubjectPref = JSON
+											.stringify(tempInterviewDetail.edSubjectPref)
+								}
+								if (tempInterviewDetail.propelCenterPref != null) {
+									tempInterviewDetail.propelCenterPref = JSON
+											.stringify(tempInterviewDetail.propelCenterPref);
+									}
+								if (tempInterviewDetail.frAvailabilityPref != null) {
+									tempInterviewDetail.frAvailabilityPref = JSON
+											.stringify(tempInterviewDetail.frAvailabilityPref);
+									}
+								
+								console.log(tempInterviewDetail)
 								var url = "/com.mad.recruit/rest/updateinterviewdetails";
 								// var url =
 								// "/madrecruit/rest/updateinterviewdetails";
@@ -296,6 +369,18 @@ madRecruitApp.controller("selectedCtrl", [
 				$('#viewResultModal').modal({
 					backdrop : 'static',
 					keyboard : false
+				})
+				console.log(candidate)
+				$scope.candResult = candidate;
+				$('#result-viewer').jsonViewer(candidate, {
+					collapsed : false
+				});
+
+			}
+			
+			$scope.downloadResult = function(candidate) {
+				var url = '/com.mad.recruit/rest/downloadList';
+				httpService.getRequest(url, function(response) {
 				})
 				console.log(candidate)
 				$scope.candResult = candidate;

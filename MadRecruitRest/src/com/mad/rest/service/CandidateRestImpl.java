@@ -62,6 +62,17 @@ public class CandidateRestImpl {
 		boolean isError = cd.addTokenToCandidate(candDetail.getEmail(), candDetail.getTokenNo());
 		return "{\"isError\":\"" + !isError + "\"}";
 	}
+	
+	@Path("/maddtoken")
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public String maddToken(MongoCandidateDetails candDetail) {
+		// System.out.println("Data : "+data);
+		MongoCandidateDaoImpl cd = new MongoCandidateDaoImpl();
+		boolean isError = cd.updateCandidateMongoDB(candDetail);
+		return "{\"isError\":\"" + !isError + "\"}";
+	}
 
 	@Path("/updateinterviewdetails")
 	@PUT
@@ -83,14 +94,11 @@ public class CandidateRestImpl {
 		return "{\"isError\":\"" + !isError + "\"}";
 	}
 
-	// mongo rest calls
-	
-	
 	@Path("/maddnewcandidate")
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public String addToMongoDB(MongoCandidateDetails MCD) {
+	public String addToMongoDBTest(MongoCandidateDetails MCD) {
 		boolean result = MongoCandidateDaoImpl.getMongoCandidateDaoImpl().addCandidateToDB(MCD);
 		return "{\"isError\":\"" + result + "\"}";
 	}
@@ -120,14 +128,18 @@ public class CandidateRestImpl {
 		return "{\"isError\":\"" + !isError + "\"}";
 	}
 	
-	@Path("/downloadexcel")
+	
+		@Path("/downloadexcel")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<MongoCandidateDetails> downloadCandidateList(){
-		return MongoCandidateDaoImpl.getMongoCandidateDaoImpl().getInterviewedCandidateList();
+		return MongoCandidateDaoImpl.getMongoCandidateDaoImpl().getCandiadatesForInterview();
 	}
 	
-	
-	
-	
+	@Path("/minterviewlist")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<MongoCandidateDetails> getMongoInterviewList() {
+		return MongoCandidateDaoImpl.getMongoCandidateDaoImpl().getCandiadatesForInterview();
+	}
 }
