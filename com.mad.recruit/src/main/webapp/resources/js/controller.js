@@ -35,7 +35,8 @@ madRecruitApp.controller("candidateCtrl", [
 		'$timeout',
 		'httpService',
 		function($scope, $rootScope, $timeout, httpService) {
-			var url = '/com.mad.recruit/rest/getcandidatelist';
+			console.log($rootScope.collection)
+			var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getcandidatelist';
 			httpService.getRequest(url, function(response) {
 				$rootScope.candidateList = response;
 			});
@@ -57,10 +58,17 @@ madRecruitApp.controller("candidateCtrl", [
 					// candidateTable.draw();
 				}
 			});
+			
+			/*$scope.$watch("collection.name",function(newValue,oldValue){
+				var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getcandidatelist';
+				httpService.getRequest(url, function(response) {
+					$rootScope.candidateList = response;
+				});
+			})*/
 
 			$scope.addToken = function(candidate) {
 				console.log(candidate)
-				var url = "/com.mad.recruit/rest/addtoken";
+				var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/addtoken";
 				// var url = "/madrecruit/rest/addtoken";
 				var data = candidate;
 				httpService.putRequest(url, data, "application/json", function(
@@ -83,7 +91,7 @@ madRecruitApp.controller("candidateCtrl", [
 			}
 			$scope.saveNewCandidate = function(newCandidate) {
 				console.log(newCandidate)
-				var url = "/com.mad.recruit/rest/addnewcandidate";
+				var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/addnewcandidate";
 				// var url = "/madrecruit/rest/addtoken";
 				var data = newCandidate;
 				httpService.putRequest(url, data, "application/json", function(
@@ -112,7 +120,7 @@ madRecruitApp
 						function($scope, $rootScope, $timeout, httpService) {
 							// alert('hello')
 							$rootScope.selected = "interviewList";
-							var url = '/com.mad.recruit/rest/getinterviewlist';
+							var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getinterviewlist';
 							// var url = "/madrecruit/rest/getinterviewlist";
 							httpService
 									.getRequest(
@@ -219,7 +227,7 @@ madRecruitApp
 										}
 									
 									// console.log($scope.candidateGA)
-									var url = "/com.mad.recruit/rest/updateinterviewdetails";
+									var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/updateinterviewdetails";
 
 									httpService
 											.putRequest(
@@ -257,12 +265,16 @@ madRecruitApp
 							$scope.gradeprefs = [ 'Lower (5-7)',
 									'Higher (8-10)']
 							
-							$scope.centerprefs = [ 'Angels','Ashadeep','Don Bosco', 'Patricks','Samarthanam','St.Marys']
+//							$scope.centerprefs = [ 'Angels','Ashadeep','Don Bosco', 'Patricks','Samarthanam','St.Marys']
+							$scope.centerprefs = ['Calcutta Muslim Orphanage for boys','Calcutta Muslim Orphanage for girls'];
 							
 							$scope.subprefs = [ 'English', 'Math', 'Science'];
 							
 							$scope.propelSubprefs = [ 'Accountancy','Economics', 'History', 'Kannada', 'Geography', 'Business studies',
-							                          'Mathematics','Chemistry' ];
+							                          'Mathematics','Chemistry' ,'Home Science'];
+							
+//							$scope.propelSubprefs =['Home Science'];
+							
 							
 							$scope.ratings = [ 1, 2, 3, 4, 5 ];
 
@@ -313,7 +325,7 @@ madRecruitApp
 									}
 								
 								console.log(tempInterviewDetail)
-								var url = "/com.mad.recruit/rest/updateinterviewdetails";
+								var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/updateinterviewdetails";
 								// var url =
 								// "/madrecruit/rest/updateinterviewdetails";
 								httpService.putRequest(url,
@@ -338,7 +350,7 @@ madRecruitApp.controller("selectedCtrl", [
 		'httpService',
 		function($scope, $rootScope, $timeout, httpService) {
 			$rootScope.selected = "selectedList";
-			var url = '/com.mad.recruit/rest/getselectedlist';
+			var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getselectedlist';
 			// var url = '/madrecruit/rest/getselectedlist';
 			httpService.getRequest(url, function(response) {
 				// alert(response)
@@ -379,7 +391,7 @@ madRecruitApp.controller("selectedCtrl", [
 			}
 			
 			$scope.downloadResult = function(candidate) {
-				var url = '/com.mad.recruit/rest/downloadList';
+				var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/downloadList';
 				httpService.getRequest(url, function(response) {
 				})
 				console.log(candidate)

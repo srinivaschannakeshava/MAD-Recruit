@@ -34,19 +34,28 @@ madRecruitApp.config([ '$routeProvider', function($routeProvider) {
 	})
 } ]);
 
-madRecruitApp.run([ '$rootScope', '$http', '$timeout', '$location',
+madRecruitApp.run([
+		'$rootScope',
+		'$http',
+		'$timeout',
+		'$location',
 		'loginService',
 		function($rootScope, $http, $timeout, $location, loginService) {
 			loginService.isLoggedIn(function(data) {
 				if (data.loggedin == "true") {
 					$rootScope.isLoggedIn = true;
-					var url = '/com.mad.recruit/rest/getcandidatelist';
-					$http.get(url).success(function(response) {
-						// alert(response)
-						if (response) {
-							$rootScope.candidateList = response;
-						}
-					});
+					loginService.getLoggedInUser(function(adminUser) {
+						$rootScope.collection = adminUser.collection;
+						var url = '/com.mad.recruit/rest/'
+								+ $rootScope.collection + '/getcandidatelist';
+						$http.get(url).success(function(response) {
+							// alert(response)
+							if (response) {
+								$rootScope.candidateList = response;
+							}
+						});
+					})
+
 					$rootScope.addCandidate = function() {
 						$('#addUserModal').modal({
 							backdrop : 'static',
@@ -64,6 +73,11 @@ madRecruitApp.run([ '$rootScope', '$http', '$timeout', '$location',
 					if (response.logout == "success") {
 						$location.path("/login");
 						$rootScope.isLoggedIn = false;
+						for ( var prop in $rootScope) {
+							if (prop.substring(0, 1) !== '$') {
+								delete $rootScope[prop];
+							}
+						}
 					}
 				});
 			};
@@ -84,6 +98,10 @@ var checkLoggedIn = function($http, $location, $rootScope, loginService) {
 	loginService.isLoggedIn(function(data) {
 		if (data.loggedin == "true") {
 			$rootScope.isLoggedIn = true;
+			loginService.getLoggedInUser(function(adminUser) {
+				console.log(adminUser);
+				$rootScope.collection = adminUser.collection;
+			})
 		} else {
 			$rootScope.isLoggedIn = false;
 			$location.path("/login");

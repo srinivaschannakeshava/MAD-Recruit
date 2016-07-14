@@ -721,6 +721,71 @@
 								</div>
 
 								<div class="form-group">
+									<label for="frUnderstand" class="col-sm-3 control-label">Check
+										knowledge about the organization, Understand the candidate,
+										Drive to join Fundraising, General IQ * </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Understand" rows="4"
+											ng-model="interviewCandidate.frUnderstand"></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="frRelation" class="col-sm-3 control-label">Relationship
+										management/Learning/ Handling Feedback/Self-evaluation, Taking
+										rejection, Team work * </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Relation" rows="4"
+											ng-model="interviewCandidate.frRelation"></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="frInvolvement" class="col-sm-3 control-label">Involvement
+										in the City Activities and not cribbing, Handling Critical
+										Situations * </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Involvement" rows="4"
+											ng-model="interviewCandidate.frInvolvement"></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="frPrior" class="col-sm-3 control-label">Prioritization,
+										Effective time management, Team player, Going the extra mile,
+										Effective multi-tasking </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Prioritization" rows="4"
+											ng-model="interviewCandidate.frPrior"></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="frOwner" class="col-sm-3 control-label">Taking
+										ownership and striving to reach full potential, Belonging /
+										Ownership/ Alignment to MAD, Effective decision making /
+										Integrity * </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Ownership" rows="4"
+											ng-model="interviewCandidate.frOwner"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="frTimeCommitment" class="col-sm-3 control-label">Time
+										Commitment * </label>
+									<div class="col-sm-6">
+										<textarea type="text" class="form-control" id="FrVertical"
+											placeholder="FR Time Commitment" rows="4"
+											ng-model="interviewCandidate.frTimeCommitment"></textarea>
+									</div>
+								</div>
+
+								<!-- <div class="form-group">
 									<label for="available" class="col-sm-3 control-label">Availability
 										: </label>
 									<div class="col-sm-8">
@@ -730,16 +795,73 @@
 											checklist-value="avail"> {{avail}}
 										</label>
 									</div>
-								</div>
+								</div> -->
 								<!-- {{interviewCandidate.frAvailabilityPref}} -->
 								<div class="form-group">
-									<label for="CAS" class="col-sm-3 control-label">Pro Activeness : </label>
+									<!-- <label for="CAS" class="col-sm-3 control-label">Pro
+										Activeness : </label>
 									<div class="col-sm-2">
 										<select class="form-control"
 											ng-model="interviewCandidate.frProActiveness"
 											ng-options="rating for rating in ratings">
 										</select>
+									</div> -->
+
+									<label for="CAS" class="col-sm-3 control-label">Team
+										Player : </label>
+									<div class="col-sm-2">
+										<select class="form-control"
+											ng-model="interviewCandidate.frTeamPlayer"
+											ng-options="rating for rating in ratings">
+										</select>
 									</div>
+									
+									<label for="CAS" class="col-sm-3 control-label">Emotional Maturity :</label>
+									<div class="col-sm-2">
+										<select class="form-control"
+											ng-model="interviewCandidate.frEmotionalMaturity"
+											ng-options="rating for rating in ratings">
+										</select>
+									</div>
+									
+								</div>
+								
+								
+								<div class="form-group">
+								<label for="CAS" class="col-sm-3 control-label">Problem Solving : </label>
+									<div class="col-sm-2">
+										<select class="form-control"
+											ng-model="interviewCandidate.frProblemSolving"
+											ng-options="rating for rating in ratings">
+										</select>
+									</div>
+									
+									<label for="CAS" class="col-sm-3 control-label">Analytical Skills :</label>
+									<div class="col-sm-2">
+										<select class="form-control"
+											ng-model="interviewCandidate.frAnalyticalSkills "
+											ng-options="rating for rating in ratings">
+										</select>
+									</div>
+									
+								</div>
+								
+								<div class="form-group">
+								<label for="CAS" class="col-sm-3 control-label">Communication Skills : </label>
+									<div class="col-sm-2">
+										<select class="form-control"
+											ng-model="interviewCandidate.frComSkills"
+											ng-options="rating for rating in ratings">
+										</select>
+									</div>
+									
+									<label for="CAS" class="col-sm-3 control-label">Observations :</label>
+									<div class="col-sm-2">
+										<textarea class="form-control" rows="5"
+											ng-model="interviewCandidate.frObservations ">
+										</textarea>
+									</div>
+									
 								</div>
 
 								<div class="form-group">

@@ -61,7 +61,116 @@ public class MongoCandidateDetails {
 	String frAvailabilityPref;
 	String frPreference;
 	int frProActiveness;
+	String frUnderstand;
+	String frRelation;
+	String frInvolvement;
+	String frPrior;
+	String frOwner;
+	String frTimeCommitment;
+	int frTeamPlayer;
+	int frEmotionalMaturity;
+	int frProblemSolving;
+	int frAnalyticalSkills;
+	int frComSkills;
+	String frObservations;
 	String frResult;
+
+	
+	public String getFrUnderstand() {
+		return frUnderstand;
+	}
+
+	public void setFrUnderstand(String frUnderstand) {
+		this.frUnderstand = frUnderstand;
+	}
+
+	public String getFrRelation() {
+		return frRelation;
+	}
+
+	public void setFrRelation(String frRelation) {
+		this.frRelation = frRelation;
+	}
+
+	public String getFrInvolvement() {
+		return frInvolvement;
+	}
+
+	public void setFrInvolvement(String frInvolvement) {
+		this.frInvolvement = frInvolvement;
+	}
+
+	public String getFrPrior() {
+		return frPrior;
+	}
+
+	public void setFrPrior(String frPrior) {
+		this.frPrior = frPrior;
+	}
+
+	public String getFrOwner() {
+		return frOwner;
+	}
+
+	public void setFrOwner(String frOwner) {
+		this.frOwner = frOwner;
+	}
+
+	public String getFrTimeCommitment() {
+		return frTimeCommitment;
+	}
+
+	public void setFrTimeCommitment(String frTimeCommitment) {
+		this.frTimeCommitment = frTimeCommitment;
+	}
+
+	public int getFrTeamPlayer() {
+		return frTeamPlayer;
+	}
+
+	public void setFrTeamPlayer(int frTeamPlayer) {
+		this.frTeamPlayer = frTeamPlayer;
+	}
+
+	public int getFrEmotionalMaturity() {
+		return frEmotionalMaturity;
+	}
+
+	public void setFrEmotionalMaturity(int frEmotionalMaturity) {
+		this.frEmotionalMaturity = frEmotionalMaturity;
+	}
+
+	public int getFrProblemSolving() {
+		return frProblemSolving;
+	}
+
+	public void setFrProblemSolving(int frProblemSolving) {
+		this.frProblemSolving = frProblemSolving;
+	}
+
+	public int getFrAnalyticalSkills() {
+		return frAnalyticalSkills;
+	}
+
+	public void setFrAnalyticalSkills(int frAnalyticalSkills) {
+		this.frAnalyticalSkills = frAnalyticalSkills;
+	}
+
+	public int getFrComSkills() {
+		return frComSkills;
+	}
+
+	public void setFrComSkills(int frComSkills) {
+		this.frComSkills = frComSkills;
+	}
+
+	public String getFrObservations() {
+		return frObservations;
+	}
+
+	public void setFrObservations(String frObservations) {
+		this.frObservations = frObservations;
+	}
 
 	public int getFrProActiveness() {
 		return frProActiveness;

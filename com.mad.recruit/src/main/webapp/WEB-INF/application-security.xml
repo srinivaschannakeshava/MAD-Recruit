@@ -28,8 +28,8 @@
 		<!-- Override default login and logout pages -->
 		<security:form-login login-page="/login"
 			login-processing-url="/j_spring_security_check" default-target-url="/login/success"
-			authentication-failure-url="/login/failure"
-			username-parameter="username" password-parameter="password" />
+			authentication-failure-url="/login/failure" username-parameter="username"
+			password-parameter="password" />
 		<security:logout invalidate-session="true"
 			logout-url="/j_spring_security_logout" logout-success-url="/login/logout" />
 	</security:http>
@@ -39,15 +39,17 @@
 
 	<!-- To create user/password with roles -->
 	<security:authentication-manager alias="authenticationManager">
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user authorities="ROLE_USER" name="madster"
-					password="makeadifference" />
-			</security:user-service>
-		</security:authentication-provider>
+		<!-- <security:authentication-provider> <security:user-service> <security:user 
+			authorities="ROLE_USER" name="candidates" password="admin123" /> <security:user 
+			authorities="ROLE_USER" name="kolkattacandidates" password="admin" /> <security:user 
+			authorities="ROLE_USER" name="delhimadster" password="admin124" /> </security:user-service> 
+			</security:authentication-provider> -->
+		<security:authentication-provider
+			ref="customAuthenticationProvider" />
 	</security:authentication-manager>
 
-	<bean id="restAuthenticationEntryPoint"
-		class="com.mad.recruit.auth.RestAuthenticationEntryPoint" />
+	<bean id="restAuthenticationEntryPoint" class="com.mad.recruit.auth.RestAuthenticationEntryPoint" />
+	<bean id="customAuthenticationProvider" class="com.mad.recruit.auth.CustomAuthenticationProvider" />
+
 
 </beans>

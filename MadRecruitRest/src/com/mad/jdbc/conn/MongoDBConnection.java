@@ -17,7 +17,7 @@ public class MongoDBConnection {
 	public static int dbPort = 27017;
 	public static MongoClient mongoClient = null;
 	public static String dbName = "madrecruit";
-	public static String collectionName = "kolkattacandidates";
+//	public static String collectionName = "kolkattacandidates";
 
 	public static void getConnection() {
 		try {
@@ -44,14 +44,14 @@ public class MongoDBConnection {
 
 	}
 
-	public static DBCollection getCollection() {
+	public static DBCollection getCollection(String collection) {
 		if (mongoClient != null) {
 			DB db = mongoClient.getDB(dbName);
-			DBCollection coll = db.getCollection(collectionName);
+			DBCollection coll = db.getCollection(collection);
 			return coll;
 		} else {
 			getConnection();
-			return getCollection(dbName, collectionName);
+			return getCollection(dbName, collection);
 		}
 	}
 
