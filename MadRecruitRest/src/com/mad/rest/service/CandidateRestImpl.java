@@ -45,7 +45,7 @@ public class CandidateRestImpl {
 		return cd.getInterviewCandidates();
 	}
 
-	@Path("/selectedlist")
+	@Path("/{collection}/selectedlist")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CandidateInterviewDetails> getSelectionList() {

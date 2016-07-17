@@ -42,6 +42,13 @@ madRecruitApp.run([
 		'loginService',
 		function($rootScope, $http, $timeout, $location, loginService) {
 			loginService.isLoggedIn(function(data) {
+				$rootScope.addCandidate = function() {
+					$('#addUserModal').modal({
+						backdrop : 'static',
+						keyboard : false
+					})
+					$rootScope.newCandidate = {};
+				}
 				if (data.loggedin == "true") {
 					$rootScope.isLoggedIn = true;
 					loginService.getLoggedInUser(function(adminUser) {
@@ -56,13 +63,6 @@ madRecruitApp.run([
 						});
 					})
 
-					$rootScope.addCandidate = function() {
-						$('#addUserModal').modal({
-							backdrop : 'static',
-							keyboard : false
-						})
-						$rootScope.newCandidate = {};
-					}
 				} else if (data.loggedin == "false") {
 					$rootScope.isLoggedIn = false;
 				}

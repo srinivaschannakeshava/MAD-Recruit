@@ -35,14 +35,20 @@ madRecruitApp.controller("candidateCtrl", [
 		'$timeout',
 		'httpService',
 		function($scope, $rootScope, $timeout, httpService) {
-			console.log($rootScope.collection)
-			var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getcandidatelist';
-			httpService.getRequest(url, function(response) {
-				$rootScope.candidateList = response;
-			});
+			
 			var candidateTable;
 			$rootScope.selected = "candidateList";
 			// $rootScope.candidateList;
+			$scope.$watch("collection",function(newValue, oldValue){
+				console.log($rootScope.collection)
+				if($rootScope.collection!=undefined){
+					var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getcandidatelist';
+					httpService.getRequest(url, function(response) {
+						$rootScope.candidateList = response;
+					});
+				}
+				
+			})
 
 			$scope.$watch("candidateList", function(newValue, oldValue) {
 				// do something
@@ -120,6 +126,9 @@ madRecruitApp
 						function($scope, $rootScope, $timeout, httpService) {
 							// alert('hello')
 							$rootScope.selected = "interviewList";
+							$scope.$watch("collection",function(newValue, oldValue){
+								
+							
 							var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getinterviewlist';
 							// var url = "/madrecruit/rest/getinterviewlist";
 							httpService
@@ -172,7 +181,7 @@ madRecruitApp
 													}
 													$scope.interviewList = response;
 												}
-											});
+											});})
 							$scope.$watch("interviewList", function(newValue,
 									oldValue) {
 								// do something
