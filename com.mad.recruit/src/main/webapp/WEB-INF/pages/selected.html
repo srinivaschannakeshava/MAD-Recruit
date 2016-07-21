@@ -1,48 +1,8 @@
 <div ng-controller="selectedCtrl">
-
-	<table id="selectedList" class="display" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>Token No</th>
-				<th>Name</th>
-				<th>Mobile No</th>
-				<th>Email</th>
-				<th>Result</th>
-				<th>View</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="selCand in selectedList">
-				<!-- <!-- 	<tr> -->
-				<td>{{selCand.tokenNo}}</td>
-				<td>{{selCand.name}}</td>
-				<td>{{selCand.mobNumber}}</td>
-				<td>{{selCand.email}}</td>
-				<td>{{selCand.result}}</td>
-				<td>
-					
-					<a href="http://52.77.248.90:8080/com.mad.recruit/rest/downloadList" class="btn btn-info" role="button">Link Button</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<div id="viewResultModal" class="modal fade" role="dialog">
-		<div class="modal-dialog modal-lg">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Interview Result</h4>
-				</div>
-				<div class="modal-body">
-					<div class="tab-content" >
-						<pre id="result-viewer"></pre>
-						
-						<!-- {{candResult}} -->
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="col-md-8 pull-right">
+		<a href={{downloadUrl}} class="btn btn-info" role="button" style="font-size: 30px;">Download
+			Candidates List</a>
 	</div>
+
+
 </div>

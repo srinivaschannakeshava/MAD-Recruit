@@ -52,6 +52,7 @@ madRecruitApp.run([
 				if (data.loggedin == "true") {
 					$rootScope.isLoggedIn = true;
 					loginService.getLoggedInUser(function(adminUser) {
+						$rootScope.centerprefs=adminUser.centers;
 						$rootScope.collection = adminUser.collection;
 						var url = '/com.mad.recruit/rest/'
 								+ $rootScope.collection + '/getcandidatelist';
@@ -100,6 +101,7 @@ var checkLoggedIn = function($http, $location, $rootScope, loginService) {
 			$rootScope.isLoggedIn = true;
 			loginService.getLoggedInUser(function(adminUser) {
 				console.log(adminUser);
+				$rootScope.centerprefs=adminUser.centers;
 				$rootScope.collection = adminUser.collection;
 			})
 		} else {

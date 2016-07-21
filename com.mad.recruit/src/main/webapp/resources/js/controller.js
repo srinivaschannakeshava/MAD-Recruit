@@ -1,4 +1,4 @@
-/**
+	/**
  * 
  */
 madRecruitApp.controller("loginCtrl", [
@@ -178,6 +178,14 @@ madRecruitApp
 															response[i].frAvailabilityPref = JSON
 																	.parse(response[i].frAvailabilityPref);
 															}
+														if (response[i].cfrObservableTraits != null) {
+															response[i].cfrObservableTraits = JSON
+																	.parse(response[i].cfrObservableTraits);
+															}
+														if (response[i].crObservableTraits != null) {
+															response[i].crObservableTraits = JSON
+																	.parse(response[i].crObservableTraits);
+															}
 													}
 													$scope.interviewList = response;
 												}
@@ -199,41 +207,90 @@ madRecruitApp
 									keyboard : false
 								})
 								$scope.candidateGA = candidate;
-								$scope.canGA;
-								if ($scope.candidateGA.groupActivity != null) {
-									$scope.canGA = JSON
-											.parse($scope.candidateGA.groupActivity);
-								} else {
-									$scope.canGA = null;
-								}
+//								$scope.canGA;
+//								if ($scope.candidateGA.groupActivity != null) {
+//									$scope.canGA = JSON
+//											.parse($scope.candidateGA.groupActivity);
+//								} else {
+//									$scope.canGA = null;
+//								}
 
-								$scope.saveCandidateGA = function(canGA) {
-									$scope.candidateGA.groupActivity = JSON
-											.stringify($scope.canGA);
-									var tempInterviewDetail = JSON.parse(JSON
-											.stringify($scope.candidateGA));
+								$scope.saveCandidateGA = function(candidate) {
+//									$scope.candidateGA.groupActivity = JSON
+//											.stringify($scope.canGA);
 									
+									var tempInterviewDetail = candidate;
+										
 									
-									if (tempInterviewDetail.availabilityPref != null) {
-										tempInterviewDetail.availabilityPref = JSON
+									if (tempInterviewDetail.edAvailabilityPref != null) {
+										tempInterviewDetail.edAvailabilityPref = JSON
 												.stringify(tempInterviewDetail.edAvailabilityPref)
 									}
-									if (tempInterviewDetail.gradePref != null) {
-										tempInterviewDetail.gradePref = JSON
+									if (tempInterviewDetail.pAvailabilityPref != null) {
+										tempInterviewDetail.pAvailabilityPref = JSON
+												.stringify(tempInterviewDetail.pAvailabilityPref)
+									}
+									if (tempInterviewDetail.edGradePref != null) {
+										tempInterviewDetail.edGradePref = JSON
 												.stringify(tempInterviewDetail.edGradePref)
 									}
-									if (tempInterviewDetail.subjectTaught != null) {
-										tempInterviewDetail.subjectTaught = JSON
+									if (tempInterviewDetail.edSubjectTaught != null) {
+										tempInterviewDetail.edSubjectTaught = JSON
 												.stringify(tempInterviewDetail.edSubjectTaught)
 									}
-									if (tempInterviewDetail.subjectPref != null) {
-										tempInterviewDetail.subjectPref = JSON
+									if (tempInterviewDetail.edCenterPref != null) {
+										tempInterviewDetail.edCenterPref = JSON
+												.stringify(tempInterviewDetail.edCenterPref)
+									}
+									if (tempInterviewDetail.propelSubjectPref != null) {
+										tempInterviewDetail.propelSubjectPref = JSON
+												.stringify(tempInterviewDetail.propelSubjectPref)
+									}
+									if (tempInterviewDetail.propelSubjectTaught != null) {
+										tempInterviewDetail.propelSubjectTaught = JSON
+												.stringify(tempInterviewDetail.propelSubjectTaught)
+									}
+									if (tempInterviewDetail.edSubjectPref != null) {
+										tempInterviewDetail.edSubjectPref = JSON
 												.stringify(tempInterviewDetail.edSubjectPref)
 									}
 									if (tempInterviewDetail.propelCenterPref != null) {
 										tempInterviewDetail.propelCenterPref = JSON
 												.stringify(tempInterviewDetail.propelCenterPref);
 										}
+									if (tempInterviewDetail.frAvailabilityPref != null) {
+										tempInterviewDetail.frAvailabilityPref = JSON
+												.stringify(tempInterviewDetail.frAvailabilityPref);
+										}
+									if (tempInterviewDetail.cfrObservableTraits != null) {
+										tempInterviewDetail.cfrObservableTraits = JSON
+												.stringify(tempInterviewDetail.cfrObservableTraits);
+										}
+									if (tempInterviewDetail.crObservableTraits != null) {
+										tempInterviewDetail.crObservableTraits = JSON
+												.stringify(tempInterviewDetail.crObservableTraits);
+										}
+									
+//									if (tempInterviewDetail.edAvailabilityPref != null) {
+//										tempInterviewDetail.edAvailabilityPref = JSON
+//												.stringify(tempInterviewDetail.edAvailabilityPref)
+//									}
+//									if (tempInterviewDetail.gradePref != null) {
+//										tempInterviewDetail.gradePref = JSON
+//												.stringify(tempInterviewDetail.edGradePref)
+//									}
+//									if (tempInterviewDetail.subjectTaught != null) {
+//										tempInterviewDetail.subjectTaught = JSON
+//												.stringify(tempInterviewDetail.edSubjectTaught)
+//									}
+//									if (tempInterviewDetail.subjectPref != null) {
+//										tempInterviewDetail.subjectPref = JSON
+//												.stringify(tempInterviewDetail.edSubjectPref)
+//									}
+//									if (tempInterviewDetail.propelCenterPref != null) {
+//										tempInterviewDetail.propelCenterPref = JSON
+//												.stringify(tempInterviewDetail.propelCenterPref);
+//										}
 									
 									// console.log($scope.candidateGA)
 									var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/updateinterviewdetails";
@@ -270,20 +327,19 @@ madRecruitApp
 							$scope.avails = [ 'Weekdays', 'Weekends',
 									'Only Saturday', 'Only Sunday' ]
 							
+							$scope.CFRobservableTraits = ['Quick Thinker','Hands On Person','Resource/Time Management',
+							                           'Problem Solving Skills','Team Player','Not CFR']
+							
+							$scope.CRobservableTraits = ['Maturity','Pitching Skills','Confidence/Convincing',
+								                           'Problem Solving Skills','Not CR']
 							
 							$scope.gradeprefs = [ 'Lower (5-7)',
 									'Higher (8-10)']
-							
-//							$scope.centerprefs = [ 'Angels','Ashadeep','Don Bosco', 'Patricks','Samarthanam','St.Marys']
-							$scope.centerprefs = ['Calcutta Muslim Orphanage for boys','Calcutta Muslim Orphanage for girls'];
-							
+							$
 							$scope.subprefs = [ 'English', 'Math', 'Science'];
 							
 							$scope.propelSubprefs = [ 'Accountancy','Economics', 'History', 'Kannada', 'Geography', 'Business studies',
 							                          'Mathematics','Chemistry' ,'Home Science'];
-							
-//							$scope.propelSubprefs =['Home Science'];
-							
 							
 							$scope.ratings = [ 1, 2, 3, 4, 5 ];
 
@@ -332,6 +388,14 @@ madRecruitApp
 									tempInterviewDetail.frAvailabilityPref = JSON
 											.stringify(tempInterviewDetail.frAvailabilityPref);
 									}
+								if (tempInterviewDetail.cfrObservableTraits != null) {
+									tempInterviewDetail.cfrObservableTraits = JSON
+											.stringify(tempInterviewDetail.cfrObservableTraits);
+									}
+								if (tempInterviewDetail.crObservableTraits != null) {
+									tempInterviewDetail.crObservableTraits = JSON
+											.stringify(tempInterviewDetail.crObservableTraits);
+									}
 								
 								console.log(tempInterviewDetail)
 								var url = "/com.mad.recruit/rest/"+$rootScope.collection+"/updateinterviewdetails";
@@ -359,9 +423,9 @@ madRecruitApp.controller("selectedCtrl", [
 		'httpService',
 		function($scope, $rootScope, $timeout, httpService) {
 			$rootScope.selected = "selectedList";
-			var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/getselectedlist';
+			$scope.downloadUrl = 'http://localhost:8080/com.mad.recruit/rest/'+$rootScope.collection+'/downloadList';
 			// var url = '/madrecruit/rest/getselectedlist';
-			httpService.getRequest(url, function(response) {
+			/*httpService.getRequest(url, function(response) {
 				// alert(response)
 				if (response) {
 					for ( var i in response) {
@@ -397,17 +461,17 @@ madRecruitApp.controller("selectedCtrl", [
 					collapsed : false
 				});
 
-			}
+			}*/
 			
-			$scope.downloadResult = function(candidate) {
+			$scope.downloadResult = function() {
 				var url = '/com.mad.recruit/rest/'+$rootScope.collection+'/downloadList';
 				httpService.getRequest(url, function(response) {
 				})
-				console.log(candidate)
+				/*console.log(candidate)
 				$scope.candResult = candidate;
 				$('#result-viewer').jsonViewer(candidate, {
 					collapsed : false
-				});
+				});*/
 
 			}
 

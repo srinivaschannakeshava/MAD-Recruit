@@ -45,7 +45,7 @@ public class CandidateListExcelView extends AbstractExcelView {
 		int cellCount = 0;
 		Field[] fields = candidate.getClass().getDeclaredFields();
 		for (Field f : fields) {
-
+			f.setAccessible(true);
 			Cell cell = row.createCell(cellCount);
 			try {
 				if (f.get(candidate) != null) {
@@ -81,96 +81,15 @@ public class CandidateListExcelView extends AbstractExcelView {
 		HSSFRow header = sheet.createRow(0);
 
 		String[] headers = { "Name", "Mobile Number", "City", "Email", "Profile", "Profession", "Organization",
-				"Vernacular", "Token No", "Pref1", "Pref 2", "PR Interest", "GroupActivity", "Cause Above Self",
+				"Vernacular", "Token No", "Pref1", "Pref 2", "PR Interest", "GAteamPlayer", "GAleadership",
+				"GAemotionalMaturity", "GAcreativeThinking", "GAenergy", "GAComments", "Cause Above Self",
 				"Emotional Maturity", "Sense of Family", "Leadership", "HC Comments", "Ed Panelsit Name",
 				"Availability Pref", "Grade Pref", "Sub Pref", "Sub Taught", "Center Pref", "Content Knowledge",
 				"Concept Breakdown", "Presentation", "Ed Comments", "Ed Result", "Propel Panelist", "Availability",
 				"SubPref", "SubTaught", "propelCenterPref", "Content Knowledge", "Concept Breakdown", "Presentation",
 				"Propel Comments", "Propel Result", "FrPanelistName", "frAvailabilityPref", "frPreference",
-				"frUnderstand", "frRelation", "frInvolvement", "frPrior", "frOwner", "frTimeCommitment", "frTeamPlayer",
-				"frEmotionalMaturity", "frProblemSolving", "frAnalyticalSkills", "frComSkills", "frObservations",
-				"frProActiveness", "frResult" };
-
-		// header.createCell(0).setCellValue("Name");
-		// header.getCell(0).setCellStyle(style);
-		//
-		// header.createCell(1).setCellValue("Mobile Number");
-		// header.getCell(1).setCellStyle(style);
-		//
-		// header.createCell(2).setCellValue("City");
-		// header.getCell(2).setCellStyle(style);
-		//
-		// header.createCell(3).setCellValue("Email");
-		// header.getCell(3).setCellStyle(style);
-		//
-		// header.createCell(4).setCellValue("Profile");
-		// header.getCell(4).setCellStyle(style);
-		//
-		// header.createCell(5).setCellValue("Profession");
-		// header.getCell(5).setCellStyle(style);
-		//
-		// header.createCell(6).setCellValue("Organization");
-		// header.getCell(6).setCellStyle(style);
-		//
-		// header.createCell(7).setCellValue("Vernacular");
-		// header.getCell(7).setCellStyle(style);
-		//
-		// header.createCell(8).setCellValue("Token No");
-		// header.getCell(8).setCellStyle(style);
-		//
-		// header.createCell(9).setCellValue("Pref1");
-		// header.getCell(9).setCellStyle(style);
-		//
-		// header.createCell(10).setCellValue("Pref 2");
-		// header.getCell(10).setCellStyle(style);
-		//
-		// header.createCell(11).setCellValue("Cause Above Self");
-		// header.getCell(11).setCellStyle(style);
-		//
-		// header.createCell(12).setCellValue("Emotional Maturity");
-		// header.getCell(12).setCellStyle(style);
-		//
-		// header.createCell(13).setCellValue("Sense of Family");
-		// header.getCell(13).setCellStyle(style);
-		//
-		// header.createCell(14).setCellValue("Leadership");
-		// header.getCell(14).setCellStyle(style);
-		//
-		// header.createCell(15).setCellValue("Ed Panelsit Name");
-		// header.getCell(15).setCellStyle(style);
-		//
-		// header.createCell(16).setCellValue("Availability Pref");
-		// header.getCell(16).setCellStyle(style);
-		//
-		// header.createCell(17).setCellValue("Grade Pref");
-		// header.getCell(17).setCellStyle(style);
-		//
-		// header.createCell(18).setCellValue("Sub Pref");
-		// header.getCell(18).setCellStyle(style);
-		//
-		// header.createCell(19).setCellValue("Sub Taught");
-		// header.getCell(19).setCellStyle(style);
-		//
-		// header.createCell(19).setCellValue("Center Pref");
-		// header.getCell(19).setCellStyle(style);
-		//
-		// header.createCell(21).setCellValue("Content Knowledge");
-		// header.getCell(21).setCellStyle(style);
-		//
-		// header.createCell(22).setCellValue("Concept Breakdown");
-		// header.getCell(22).setCellStyle(style);
-		//
-		// header.createCell(23).setCellValue("Presentation");
-		// header.getCell(23).setCellStyle(style);
-		//
-		// header.createCell(24).setCellValue("Ed Comments");
-		// header.getCell(24).setCellStyle(style);
-		//
-		// header.createCell(25).setCellValue("Ed Result");
-		// header.getCell(25).setCellStyle(style);
-		//
-		// header.createCell(26).setCellValue("Propel Panelist");
-		// header.getCell(26).setCellStyle(style);
+				"frProActiveness", "CFRObservableTraits", "CRObservableTraits", "Thought Process", "Remarkability",
+				"Confidence", "Content", "Comments", "frResult" };
 
 		int i = 0;
 		for (String string : headers) {

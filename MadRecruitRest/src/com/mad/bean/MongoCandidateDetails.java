@@ -1,7 +1,5 @@
 package com.mad.bean;
 
-import org.bson.types.ObjectId;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -26,7 +24,12 @@ public class MongoCandidateDetails {
 	String pref2;
 	String prInterest;
 
-	String groupActivity;
+	int gAteamPlayer;
+	int gAleadership;
+	int gAemotionalMaturity;
+	int gAcreativeThinking;
+	int gAenergy;
+	String gAComments;
 
 	int causeAboveSelf;
 	int emotionalMaturity;
@@ -61,115 +64,69 @@ public class MongoCandidateDetails {
 	String frAvailabilityPref;
 	String frPreference;
 	int frProActiveness;
-	String frUnderstand;
-	String frRelation;
-	String frInvolvement;
-	String frPrior;
-	String frOwner;
-	String frTimeCommitment;
-	int frTeamPlayer;
-	int frEmotionalMaturity;
-	int frProblemSolving;
-	int frAnalyticalSkills;
-	int frComSkills;
-	String frObservations;
+	String cfrObservableTraits;
+	String crObservableTraits;
+	int frThoughtProcess;
+	int frRemarkability;
+	int frConfidence;
+	int frContent;
+	String frComments;
 	String frResult;
 
-	
-	public String getFrUnderstand() {
-		return frUnderstand;
+	public String getCfrObservableTraits() {
+		return cfrObservableTraits;
 	}
 
-	public void setFrUnderstand(String frUnderstand) {
-		this.frUnderstand = frUnderstand;
+	public void setCfrObservableTraits(String cfrObservableTraits) {
+		this.cfrObservableTraits = cfrObservableTraits;
 	}
 
-	public String getFrRelation() {
-		return frRelation;
+	public String getCrObservableTraits() {
+		return crObservableTraits;
 	}
 
-	public void setFrRelation(String frRelation) {
-		this.frRelation = frRelation;
+	public void setCrObservableTraits(String crObservableTraits) {
+		this.crObservableTraits = crObservableTraits;
 	}
 
-	public String getFrInvolvement() {
-		return frInvolvement;
+	public int getFrThoughtProcess() {
+		return frThoughtProcess;
 	}
 
-	public void setFrInvolvement(String frInvolvement) {
-		this.frInvolvement = frInvolvement;
+	public String getFrComments() {
+		return frComments;
 	}
 
-	public String getFrPrior() {
-		return frPrior;
+	public void setFrComments(String frComments) {
+		this.frComments = frComments;
 	}
 
-	public void setFrPrior(String frPrior) {
-		this.frPrior = frPrior;
+	public void setFrThoughtProcess(int frThoughtProcess) {
+		this.frThoughtProcess = frThoughtProcess;
 	}
 
-	public String getFrOwner() {
-		return frOwner;
+	public int getFrRemarkability() {
+		return frRemarkability;
 	}
 
-	public void setFrOwner(String frOwner) {
-		this.frOwner = frOwner;
+	public void setFrRemarkability(int frRemarkability) {
+		this.frRemarkability = frRemarkability;
 	}
 
-	public String getFrTimeCommitment() {
-		return frTimeCommitment;
+	public int getFrConfidence() {
+		return frConfidence;
 	}
 
-	public void setFrTimeCommitment(String frTimeCommitment) {
-		this.frTimeCommitment = frTimeCommitment;
+	public void setFrConfidence(int frConfidence) {
+		this.frConfidence = frConfidence;
 	}
 
-	public int getFrTeamPlayer() {
-		return frTeamPlayer;
+	public int getFrContent() {
+		return frContent;
 	}
 
-	public void setFrTeamPlayer(int frTeamPlayer) {
-		this.frTeamPlayer = frTeamPlayer;
-	}
-
-	public int getFrEmotionalMaturity() {
-		return frEmotionalMaturity;
-	}
-
-	public void setFrEmotionalMaturity(int frEmotionalMaturity) {
-		this.frEmotionalMaturity = frEmotionalMaturity;
-	}
-
-	public int getFrProblemSolving() {
-		return frProblemSolving;
-	}
-
-	public void setFrProblemSolving(int frProblemSolving) {
-		this.frProblemSolving = frProblemSolving;
-	}
-
-	public int getFrAnalyticalSkills() {
-		return frAnalyticalSkills;
-	}
-
-	public void setFrAnalyticalSkills(int frAnalyticalSkills) {
-		this.frAnalyticalSkills = frAnalyticalSkills;
-	}
-
-	public int getFrComSkills() {
-		return frComSkills;
-	}
-
-	public void setFrComSkills(int frComSkills) {
-		this.frComSkills = frComSkills;
-	}
-
-	public String getFrObservations() {
-		return frObservations;
-	}
-
-	public void setFrObservations(String frObservations) {
-		this.frObservations = frObservations;
+	public void setFrContent(int frContent) {
+		this.frContent = frContent;
 	}
 
 	public int getFrProActiveness() {
@@ -436,14 +393,6 @@ public class MongoCandidateDetails {
 		this.finalComments = finalComments;
 	}
 
-	public String getGroupActivity() {
-		return groupActivity;
-	}
-
-	public void setGroupActivity(String groupActivity) {
-		this.groupActivity = groupActivity;
-	}
-
 	public String getpPanelistName() {
 		return pPanelistName;
 	}
@@ -522,6 +471,54 @@ public class MongoCandidateDetails {
 
 	public void setPropelSubjectTaught(String propelSubjectTaught) {
 		this.propelSubjectTaught = propelSubjectTaught;
+	}
+
+	public int getgAteamPlayer() {
+		return gAteamPlayer;
+	}
+
+	public void setgAteamPlayer(int gAteamPlayer) {
+		this.gAteamPlayer = gAteamPlayer;
+	}
+
+	public int getgAleadership() {
+		return gAleadership;
+	}
+
+	public void setgAleadership(int gAleadership) {
+		this.gAleadership = gAleadership;
+	}
+
+	public int getgAemotionalMaturity() {
+		return gAemotionalMaturity;
+	}
+
+	public void setgAemotionalMaturity(int gAemotionalMaturity) {
+		this.gAemotionalMaturity = gAemotionalMaturity;
+	}
+
+	public int getgAcreativeThinking() {
+		return gAcreativeThinking;
+	}
+
+	public void setgAcreativeThinking(int gAcreativeThinking) {
+		this.gAcreativeThinking = gAcreativeThinking;
+	}
+
+	public int getgAenergy() {
+		return gAenergy;
+	}
+
+	public void setgAenergy(int gAenergy) {
+		this.gAenergy = gAenergy;
+	}
+
+	public String getgAComments() {
+		return gAComments;
+	}
+
+	public void setgAComments(String gAComments) {
+		this.gAComments = gAComments;
 	}
 
 }
